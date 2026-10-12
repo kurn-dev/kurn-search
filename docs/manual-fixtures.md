@@ -23,7 +23,7 @@ printf '%s\n' \
 <!-- w6s0:service-config:start -->
 ```sh
 cat > "$KURN_SEARCH_RUN_ROOT/kurn-searchd.json" <<EOF
-{"schema":"kurn-search-private-local-proof/v1","listen_address":"$KURN_SEARCHD_ADDR","runtime_status_file":"$KURN_SEARCH_RUN_ROOT/search-status.json","kurn_endpoint":"http://$KURND_ADDR","backend_credential_file":"$KURN_SEARCH_RUN_ROOT/backend-token","kurn_source_revision":"06c97f9fe695e29ce5adfc05f502edd68f5790e2","rate":{"unlimited":true,"rate_per_sec":0},"adapter":{"name":"catalog-identifier","physical_list_name":"catalog-identifiers-v1","config_sha256":"ffd99df8acdeb32535e52dd60bfcf02f8bfa1f0968b2895ba7a48a4c1fb887f6","timeout_millis":30000,"max_inflight":1,"worst_case_charge_bytes":1073741824},"fixture_authenticator_file":"$KURN_SEARCH_RUN_ROOT/fixture-auth.json","readiness_file":"$KURN_SEARCH_RUN_ROOT/readiness.json"}
+{"schema":"kurn-search-private-local-proof/v1","listen_address":"$KURN_SEARCHD_ADDR","runtime_status_file":"$KURN_SEARCH_RUN_ROOT/search-status.json","kurn_endpoint":"http://$KURND_ADDR","backend_credential_file":"$KURN_SEARCH_RUN_ROOT/backend-token","kurn_source_revision":"3d6c938ab3d59bbd87bc697e5e25610569fbac4d","rate":{"unlimited":true,"rate_per_sec":0},"adapter":{"name":"catalog-identifier","physical_list_name":"catalog-identifiers-v1","config_sha256":"ffd99df8acdeb32535e52dd60bfcf02f8bfa1f0968b2895ba7a48a4c1fb887f6","timeout_millis":30000,"max_inflight":1,"worst_case_charge_bytes":1073741824},"fixture_authenticator_file":"$KURN_SEARCH_RUN_ROOT/fixture-auth.json","readiness_file":"$KURN_SEARCH_RUN_ROOT/readiness.json"}
 EOF
 
 chmod 600 \

@@ -915,6 +915,9 @@ func TestLegacyPositivesUnchangedAlongsidePrepared(t *testing.T) {
 func TestPreparedEngineAuthorityPairs(t *testing.T) {
 	parent := t.TempDir()
 	_ = os.Chmod(parent, 0o700)
+	if EngineAuthorities[1] != (EngineAuthority{Revision: "06c97f9fe695e29ce5adfc05f502edd68f5790e2", Label: "v0.7.0"}) {
+		t.Fatal("previous prepared release authority was not preserved")
+	}
 	previous := EngineAuthorities[len(EngineAuthorities)-1]
 	if previous.Revision != "f7423cd8cbb8165caf8aa750f56586a0ee621249" || previous.Label != "v0.6.0-1-gf7423cd" ||
 		EngineAuthorities[0].Revision != KurnSourceRevision || EngineAuthorities[0].Label != KurnCompatibilityLabel || KurnSourceRevision == previous.Revision {

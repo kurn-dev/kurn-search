@@ -46,7 +46,7 @@ const (
 	// configuration names its revision, and is served with that revision's
 	// label (see EngineAuthorities), so versions bound to a previously
 	// admitted pair keep loading without reinterpretation.
-	KurnSourceRevision     = "06c97f9fe695e29ce5adfc05f502edd68f5790e2"
+	KurnSourceRevision     = "3d6c938ab3d59bbd87bc697e5e25610569fbac4d"
 	KurnCompatibilityLabel = "v0.7.0"
 
 	ExitFailure     = 1
@@ -102,6 +102,7 @@ type EngineAuthority struct{ Revision, Label string }
 // delivered artifacts and never move with this table.
 var EngineAuthorities = []EngineAuthority{
 	{Revision: KurnSourceRevision, Label: KurnCompatibilityLabel},
+	{Revision: "06c97f9fe695e29ce5adfc05f502edd68f5790e2", Label: "v0.7.0"},
 	{Revision: "cf235b9b946ca0a60b5f6b205c376336fc5558ab", Label: "v0.6.0-3-gcf235b9"},
 	{Revision: "e11dcf8873a37a948cddba71571fcf2cc49b4b1a", Label: "v0.6.0-2-ge11dcf8"},
 	{Revision: "f7423cd8cbb8165caf8aa750f56586a0ee621249", Label: "v0.6.0-1-gf7423cd"},

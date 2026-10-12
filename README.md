@@ -18,7 +18,7 @@ replacement. Your source stays authoritative; the serving version needs
 neither the original source nor its mapping.
 
 Use Go 1.27, Node.js 25.6.1, Python 3.14.5 and a compatible Kurn engine checkout.
-Use Kurn v0.7.0 at `06c97f9fe695e29ce5adfc05f502edd68f5790e2`.
+Use Kurn v0.7.0 at `3d6c938ab3d59bbd87bc697e5e25610569fbac4d`.
 It contains prepared artifacts and exact companions. Use that exact source
 revision, or the v0.7.0 tag when available; do not assume an older `@latest`
 engine tag contains these features.

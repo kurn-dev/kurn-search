@@ -50,7 +50,10 @@ func TestParseMaxQueue(t *testing.T) {
 // descriptor rebuilt with that label; an unknown label is refused by the
 // descriptor builder and by manifest validation.
 func TestManifestEngineLabelsAdmittedPairsOnly(t *testing.T) {
-	previous := localproof.EngineAuthorities[1].Label
+	previous := localproof.EngineAuthorities[len(localproof.EngineAuthorities)-1].Label
+	if previous == localproof.KurnCompatibilityLabel {
+		t.Fatal("previous-label refusal needs a distinct historical label")
+	}
 	m := testValidManifest(t)
 	if m.Operational.TestedEngine != localproof.KurnCompatibilityLabel {
 		t.Fatalf("test manifest binds %q, not the current label", m.Operational.TestedEngine)

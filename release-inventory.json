@@ -1,7 +1,7 @@
 {
   "schema": "kurn-search-public-release-inventory/v1",
   "engine": {
-    "revision": "06c97f9fe695e29ce5adfc05f502edd68f5790e2",
+    "revision": "3d6c938ab3d59bbd87bc697e5e25610569fbac4d",
     "compatibility_label": "v0.7.0"
   },
   "distribution": "source-checkout reference implementations; no registry or production-service claim",
@@ -10,7 +10,6 @@
     "clients_and_templates": "MIT"
   },
   "excluded_products": [
-    "Swarm",
     "private performance commands",
     "private deployment commands",
     "historical evidence generators"
@@ -45,7 +44,7 @@
     {
       "name": "README.md",
       "bytes": 3682,
-      "sha256": "2728757500dd2e55597e4b7c30b76a417da5a4099f7f4c5bb109f786621d8552"
+      "sha256": "65c38d0cb047f59b0cc9f6f20cda34ed164f04397c4330d978035d5c569354f4"
     },
     {
       "name": "adapter/README.md",
@@ -855,17 +854,17 @@
     {
       "name": "docs/manual-fixtures.md",
       "bytes": 2064,
-      "sha256": "cc075bdc260453623f264f35e3b7d02ae211d1960d6b41760c7e73aa2e2076d5"
+      "sha256": "33722a354a728fec84ace770c5ea8c3f088e6bc742fe8da93375f3644b1d6788"
     },
     {
       "name": "docs/release.md",
-      "bytes": 2934,
-      "sha256": "36e0b7a287efe96c65c56107065d218a67b01b40e441f5b9b47720b7e542d2dd"
+      "bytes": 2927,
+      "sha256": "dfb338649e71a3d9ce5f812607e3dc4c1557bc65f2e245dffdbff90499a79b43"
     },
     {
       "name": "docs/user-manual.md",
-      "bytes": 7282,
-      "sha256": "629ec27753ed157bd080036ea66eb7ac5fdfb3e251d677a20412fae5fcf0ee84"
+      "bytes": 7248,
+      "sha256": "1ee4145e170c4193b8704817e669dfae3fba27ea78df57f7b3ebbbdb4657839d"
     },
     {
       "name": "examples/catalog-identifier/README.md",
@@ -1404,13 +1403,13 @@
     },
     {
       "name": "internal/localproof/config.go",
-      "bytes": 38660,
-      "sha256": "8c3f6ffcb9ee7f0fa6fb4ec58a605fa762f0ece269efe15f381912d1ec41e06c"
+      "bytes": 38734,
+      "sha256": "a44dc67fa7bbd681e8f2c8d48e17dc3e8db26ad9da4e4722242b83124dc8e3a4"
     },
     {
       "name": "internal/localproof/config_prepared_test.go",
-      "bytes": 42492,
-      "sha256": "ad352225b053b18722b6e2143d24875bcea70e3a74172a40c9a39a4d43236784"
+      "bytes": 42681,
+      "sha256": "5098c19026f68b0e1df6a68ea61e982fa9d967ab5ab6bedabfb0f10b8235d911"
     },
     {
       "name": "internal/localproof/config_test.go",
@@ -1534,8 +1533,8 @@
     },
     {
       "name": "localsetup/preparedsetup/inflight_test.go",
-      "bytes": 3583,
-      "sha256": "df050f9f037bf07825bbcc569642856a33c15cfc8eed040e575f0a55c9c344ca"
+      "bytes": 3742,
+      "sha256": "9cbb502d199754bdef5ef8473b6c3c3473186cf0811de9d731ec3c6c65bb91c4"
     },
     {
       "name": "localsetup/preparedsetup/manifest.go",

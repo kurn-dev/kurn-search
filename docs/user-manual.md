@@ -9,7 +9,7 @@ are alternatives, not prerequisites for prepared serving.
 
 Use Go 1.27, Node.js 25.6.1, Python 3.14.5 and curl. Use a compatible engine
 checkout containing prepared artifacts and exact companions; the reviewed
-candidate is `06c97f9fe695e29ce5adfc05f502edd68f5790e2`. Until the coordinated
+candidate is `3d6c938ab3d59bbd87bc697e5e25610569fbac4d`. Until the coordinated
 engine release is published, `@latest` must not be assumed to include it.
 Set checkout paths to absolute physical paths (`pwd -P`). Keep generated
 versions and credentials in fresh private directories outside both checkouts.
@@ -137,5 +137,5 @@ and an authenticated A query, then restore A's pair and drain/stop B.
 
 Loopback authentication is demonstration material. TLS, production identity,
 supervision, fleet operations, capacity and workload relevance need separate
-evaluation. Swarm is not a supported backend. See [release verification](release.md)
+evaluation. See [release verification](release.md)
 for the selected source and evidence boundaries.

@@ -2,7 +2,7 @@
 
 This distribution contains the application-facing Search service, seven adapter
 examples, the prepared-version helper, TypeScript and Python clients, and the
-implementation libraries required to build those tools. Swarm, private
+implementation libraries required to build those tools. Private
 performance commands and the private historical evidence-generation system
 are excluded from the supported distribution.
 
@@ -28,7 +28,7 @@ distribution. Runtime construction and response validation do not require
 them, a private repository, or registry installation.
 
 Use a compatible engine containing prepared artifacts and exact companions.
-The compatible engine is v0.7.0 at `06c97f9fe695e29ce5adfc05f502edd68f5790e2`.
+The compatible engine is v0.7.0 at `3d6c938ab3d59bbd87bc697e5e25610569fbac4d`.
 Use that exact source revision, or the v0.7.0 tag when available, rather than
 assuming `go install @latest` selects it. Release preparation does not claim
 that a repository, tag, registry package or hosted endpoint is already public.
