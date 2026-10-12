@@ -1,0 +1,11 @@
+{
+  "name": "@kurn-dev/kurn-search-client-private",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./generated/client.d.ts",
+      "import": "./generated/client.mjs"
+    }
+  }
+}

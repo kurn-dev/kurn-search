@@ -1,0 +1,95 @@
+{
+  "schema": "kurn-search-public-provenance-summary/v1",
+  "kind": "analyzer",
+  "scope": "upstream evidence summary; not an inventory or attestation of the selected public source tree",
+  "upstream": {
+    "schema": "kurn-search-analyzer-identity/v1",
+    "sha256": "e729a51817550164438841fafc650086e41ec86f43d3af13d266319ee6e6f285"
+  },
+  "public_artifacts": [
+    {
+      "name": "adapter/analyzer/testdata/neutral-golden.json",
+      "bytes": 23579,
+      "sha256": "151dfdeec35217e2492f744fc9ee037d82c287f5f9d4f390adaf8b9c982601a0"
+    }
+  ],
+  "evidence": {
+    "fixture_count": 20,
+    "view_count": 5,
+    "oracle_set_equal": 99,
+    "residual": {
+      "classification": "accepted_lucene_emoji_residual",
+      "fixture_id": "astral",
+      "view": "word-index"
+    },
+    "unproven_classes": [
+      "dictionary_word_break_script",
+      "greek_case_context",
+      "other_number_word_join",
+      "post_unicode_15_assignment",
+      "unassigned_unicode_17"
+    ],
+    "go_version": "go1.27.0",
+    "unicode": {
+      "cases": "17.0.0",
+      "normalization": "17.0.0",
+      "standard_library": "17.0.0",
+      "word_break_module": "github.com/clipperhouse/uax29/v2@v2.7.0"
+    },
+    "canaries": [
+      {
+        "authority": "x/text/cases v0.38.0 / Unicode 17.0.0",
+        "unicode15_control": "Unicode 15: unchanged U+A7CE",
+        "expected": "U+A7CF",
+        "id": "unicode17-full-lower",
+        "input": "U+A7CE",
+        "kind": "version-evidence"
+      },
+      {
+        "authority": "x/text/unicode/norm v0.38.0 / Unicode 17.0.0",
+        "unicode15_control": "Unicode 15: unchanged U+A7F1",
+        "expected": "U+0053",
+        "id": "unicode17-nfkd",
+        "input": "U+A7F1",
+        "kind": "version-evidence"
+      },
+      {
+        "authority": "uax29/v2 v2.7.0 / Unicode 17.0.0",
+        "unicode15_control": "Unicode 15: U+1C89 is unassigned and breaks from adjacent ALetter runes",
+        "expected": "one word-boundary segment",
+        "id": "unicode16-word-boundary",
+        "input": "a U+1C89 b",
+        "kind": "version-evidence"
+      },
+      {
+        "authority": "uax29/v2 v2.7.0 / Unicode 17.0.0",
+        "unicode15_control": "Unicode 16: U+088F is unassigned and breaks from adjacent ALetter runes",
+        "expected": "one word-boundary segment",
+        "id": "unicode17-word-boundary",
+        "input": "a U+088F b",
+        "kind": "version-evidence"
+      },
+      {
+        "authority": "Node 25.6.1 / ICU 78.2",
+        "expected": "No excluded; Nd, Nl, L included",
+        "id": "word-like-categories",
+        "input": "U+00B2 U+00BD U+2163 U+0663",
+        "kind": "regression-anchor"
+      },
+      {
+        "authority": "frozen corrected local analyzer",
+        "expected": "ist",
+        "id": "dotted-i",
+        "input": "U+0130 ST",
+        "kind": "regression-anchor"
+      },
+      {
+        "authority": "frozen corrected local analyzer",
+        "expected": "lot, tail",
+        "id": "astral-word-residual",
+        "input": "LOT U+1F600 TAIL",
+        "kind": "regression-anchor"
+      }
+    ]
+  }
+}

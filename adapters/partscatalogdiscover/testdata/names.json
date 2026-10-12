@@ -1,0 +1,27 @@
+{
+  "base_source_sha256": "d6b7e113dd01d43ec108ab8eee54ef4ea59af5d0cca22b3b0f3a058efc1aa57c",
+  "core": {
+    "PC-001": "Deep groove ball bearing 6204",
+    "PC-002": "Deep groove ball bearing 6204",
+    "PC-003": "Deep groove ball bearing 6204 legacy",
+    "PC-004": "Oil filter cartridge",
+    "PC-005": "Deep groove ball bearing 6204",
+    "PC-006": "Angular contact bearing 7204",
+    "PC-007": "Flange gasket 80 mm",
+    "PC-008": "AX-100 compatible air filter panel",
+    "PC-009": "Exhaust gasket Ø60",
+    "PC-010": "Deep groove ball bearing 6204 spare",
+    "PC-011": "Deep-groove ball bearing",
+    "PC-012": "Thrust bearings 51104"
+  },
+  "flood": {
+    "default_prefix": "Halden gasket ring ",
+    "end": 9139,
+    "special": {
+      "ZB-9000": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "ZB-9001": "Electromechanicalunit gasket ring 9001"
+    },
+    "start": 9000
+  },
+  "schema": "kurn-search/parts-catalog-discover-names/v1"
+}

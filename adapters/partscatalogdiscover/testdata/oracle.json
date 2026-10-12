@@ -1,0 +1,291 @@
+{
+  "schema": "kurn-search/parts-catalog-discover-fixture/v1",
+  "source_fixture_sha256": "d6b7e113dd01d43ec108ab8eee54ef4ea59af5d0cca22b3b0f3a058efc1aa57c",
+  "queries": [
+    {
+      "id": "D01",
+      "request": {
+        "query": "AX-100"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-010",
+        "PC-011",
+        "PC-004",
+        "PC-008"
+      ]
+    },
+    {
+      "id": "D02",
+      "request": {
+        "query": "AX-100 compatible"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-008"
+      ]
+    },
+    {
+      "id": "D03",
+      "request": {
+        "query": "ball bearing"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-010",
+        "PC-011"
+      ]
+    },
+    {
+      "id": "D04",
+      "request": {
+        "query": "bearing"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-010",
+        "PC-011",
+        "PC-006",
+        "PC-012"
+      ]
+    },
+    {
+      "id": "D05",
+      "request": {
+        "query": "bearings"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-012"
+      ]
+    },
+    {
+      "id": "D06",
+      "request": {
+        "query": "gasket",
+        "limit": 25
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-007",
+        "PC-009",
+        "ZB-9001",
+        "ZB-9002",
+        "ZB-9003",
+        "ZB-9004",
+        "ZB-9005",
+        "ZB-9006",
+        "ZB-9007",
+        "ZB-9008",
+        "ZB-9009",
+        "ZB-9010",
+        "ZB-9011",
+        "ZB-9012",
+        "ZB-9013",
+        "ZB-9014",
+        "ZB-9015",
+        "ZB-9016",
+        "ZB-9017",
+        "ZB-9018",
+        "ZB-9019",
+        "ZB-9020",
+        "ZB-9021",
+        "ZB-9022",
+        "ZB-9023"
+      ]
+    },
+    {
+      "id": "D07",
+      "request": {
+        "query": "ring 9139"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "ZB-9139"
+      ]
+    },
+    {
+      "id": "D08",
+      "request": {
+        "query": "Ø60"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-009"
+      ]
+    },
+    {
+      "id": "D09",
+      "request": {
+        "query": "o60"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-009"
+      ]
+    },
+    {
+      "id": "D10",
+      "request": {
+        "query": "mm"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-007"
+      ]
+    },
+    {
+      "id": "D11",
+      "request": {
+        "query": "AX-bearing"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": []
+    },
+    {
+      "id": "D12",
+      "request": {
+        "query": "ball ball"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-010",
+        "PC-011"
+      ]
+    },
+    {
+      "id": "D13",
+      "request": {
+        "query": "filter",
+        "partition_id": "south"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-008"
+      ]
+    },
+    {
+      "id": "D14",
+      "request": {
+        "query": "ball",
+        "filters": {
+          "manufacturer": "Northstar"
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-003",
+        "PC-010"
+      ]
+    },
+    {
+      "id": "D15",
+      "request": {
+        "query": "sprocket"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": []
+    },
+    {
+      "id": "D16",
+      "request": {
+        "query": "electromechanicalunit"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "ZB-9001"
+      ]
+    },
+    {
+      "id": "D17",
+      "request": {
+        "query": "electromechanicaluni"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "ZB-9001"
+      ]
+    },
+    {
+      "id": "D18",
+      "request": {
+        "query": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "ZB-9000"
+      ]
+    },
+    {
+      "id": "D19",
+      "request": {
+        "query": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": []
+    },
+    {
+      "id": "D20",
+      "request": {
+        "query": "aaa"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "ZB-9000"
+      ]
+    }
+  ]
+}

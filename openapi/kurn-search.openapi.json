@@ -1,0 +1,1563 @@
+{
+  "components": {
+    "schemas": {
+      "AdapterIdentity": {
+        "additionalProperties": false,
+        "properties": {
+          "behavior_sha256": {
+            "description": "Deterministic adapter behavior identity.",
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "name": {
+            "description": "Reviewed adapter name.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "version": {
+            "description": "Reviewed adapter version.",
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "behavior_sha256",
+          "name",
+          "version"
+        ],
+        "type": "object"
+      },
+      "Error400": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "invalid_request"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error401": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "unauthenticated"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error403": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "scope_refused"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error404": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "adapter_not_found"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error405": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "method_not_allowed"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error409": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "adapter_version_mismatch"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error415": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "unsupported_media_type"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error422": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "incomplete_at_pool_ceiling"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error429": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "backend_rate_limited"
+            ],
+            "type": "string"
+          },
+          "retry_after_seconds": {
+            "description": "Optional bounded backend or service hint; it is not an automatic-retry policy.",
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error500": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "internal_failure"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error502": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "adapter_resolution_failed",
+              "backend_conflict",
+              "backend_forbidden",
+              "backend_http_error",
+              "backend_inline_error",
+              "backend_not_found",
+              "backend_protocol_error",
+              "backend_redirect",
+              "backend_unauthorized",
+              "filter_identity_mismatch",
+              "invalid_evidence",
+              "list_identity_mismatch",
+              "response_too_large",
+              "transport_failure"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error503": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "backend_overloaded",
+              "service_admission_unavailable",
+              "service_queue_full"
+            ],
+            "type": "string"
+          },
+          "retry_after_seconds": {
+            "description": "Optional bounded backend or service hint; it is not an automatic-retry policy.",
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "Error504": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "operation_deadline"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      },
+      "FacetAlternativeGroup": {
+        "additionalProperties": false,
+        "properties": {
+          "basis_total": {
+            "description": "Exact matched count after all selections except this group's own selection.",
+            "maximum": 999,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "buckets": {
+            "description": "Positive counts sum exactly to basis_total; ordered by count then UTF-16 value.",
+            "items": {
+              "$ref": "#/components/schemas/FacetBucket"
+            },
+            "maxItems": 999,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "basis_total",
+          "buckets"
+        ],
+        "type": "object"
+      },
+      "FacetAlternatives": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/FacetAlternativeGroup"
+          },
+          "manufacturer": {
+            "$ref": "#/components/schemas/FacetAlternativeGroup"
+          },
+          "status": {
+            "$ref": "#/components/schemas/FacetAlternativeGroup"
+          }
+        },
+        "required": [
+          "category",
+          "manufacturer",
+          "status"
+        ],
+        "type": "object"
+      },
+      "FacetBucket": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "description": "Rows in the complete matched set carrying this payload-exact value.",
+            "maximum": 999,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "value": {
+            "description": "Payload-exact source string; at most 512 Unicode scalar values.",
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "count",
+          "value"
+        ],
+        "type": "object"
+      },
+      "FacetBucketList": {
+        "description": "Buckets ordered by count descending, then by value in JavaScript UTF-16 code-unit order; each group's counts sum exactly to total_matches.",
+        "items": {
+          "$ref": "#/components/schemas/FacetBucket"
+        },
+        "maxItems": 999,
+        "minItems": 0,
+        "type": "array"
+      },
+      "Facets": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/FacetBucketList"
+          },
+          "manufacturer": {
+            "$ref": "#/components/schemas/FacetBucketList"
+          },
+          "status": {
+            "$ref": "#/components/schemas/FacetBucketList"
+          }
+        },
+        "required": [
+          "category",
+          "manufacturer",
+          "status"
+        ],
+        "type": "object"
+      },
+      "Hit": {
+        "additionalProperties": false,
+        "properties": {
+          "entry_id": {
+            "description": "Opaque entry identity; runtime maximum 512 UTF-8 bytes.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "result": {
+            "description": "Non-null opaque JSON result. Thin clients map this to unknown or Any.",
+            "type": [
+              "object",
+              "array",
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "required": [
+          "entry_id",
+          "result"
+        ],
+        "type": "object"
+      },
+      "ListProvenance": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "Opaque physical-list name returned only as audit provenance.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "description": "Reviewed adapter list role.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "stamp": {
+            "description": "Opaque served list stamp returned only as audit provenance.",
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "role",
+          "stamp"
+        ],
+        "type": "object"
+      },
+      "SearchFacetAlternativesSuccess": {
+        "additionalProperties": false,
+        "properties": {
+          "adapter": {
+            "$ref": "#/components/schemas/AdapterIdentity"
+          },
+          "complete": {
+            "const": true,
+            "type": "boolean"
+          },
+          "facets": {
+            "$ref": "#/components/schemas/FacetAlternatives"
+          },
+          "hits": {
+            "description": "All-filter ranked hit prefix. The group-specific alternative bases precede caller limiting.",
+            "items": {
+              "$ref": "#/components/schemas/Hit"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "lists": {
+            "items": {
+              "$ref": "#/components/schemas/ListProvenance"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "pool": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "pool_step": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "timing_us": {
+            "$ref": "#/components/schemas/TimingUS"
+          },
+          "total_matches": {
+            "description": "Exact all-filter total before the hit limit.",
+            "maximum": 999,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "version_attempt": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "adapter",
+          "complete",
+          "facets",
+          "hits",
+          "lists",
+          "pool",
+          "pool_step",
+          "timing_us",
+          "total_matches",
+          "version_attempt"
+        ],
+        "type": "object"
+      },
+      "SearchFacetsSuccess": {
+        "additionalProperties": false,
+        "properties": {
+          "adapter": {
+            "$ref": "#/components/schemas/AdapterIdentity"
+          },
+          "complete": {
+            "const": true,
+            "type": "boolean"
+          },
+          "facets": {
+            "$ref": "#/components/schemas/Facets"
+          },
+          "hits": {
+            "description": "Complete hits in adapter-defined ranking order: the prefix of the complete matched set with length min(limit, total_matches).",
+            "items": {
+              "$ref": "#/components/schemas/Hit"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "lists": {
+            "description": "Opaque provenance in canonical role-then-name order.",
+            "items": {
+              "$ref": "#/components/schemas/ListProvenance"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "pool": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "pool_step": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "timing_us": {
+            "$ref": "#/components/schemas/TimingUS"
+          },
+          "total_matches": {
+            "description": "Exact size of the complete, trusted, currently filtered matched set before the caller limit is applied.",
+            "maximum": 999,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "version_attempt": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "adapter",
+          "complete",
+          "facets",
+          "hits",
+          "lists",
+          "pool",
+          "pool_step",
+          "timing_us",
+          "total_matches",
+          "version_attempt"
+        ],
+        "type": "object"
+      },
+      "SearchRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "adapter_version": {
+            "description": "Optional exact adapter-version pin; runtime maximum 32 UTF-8 bytes.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "filters": {
+            "additionalProperties": false,
+            "description": "Optional adapter-dependent literal filters: parts-catalog accepts scalar equality; parts-catalog-select additionally accepts arrays (OR within a field, AND across fields and trusted scope). Omission or {} adds no business restriction; an empty array is invalid. Supplied array counts apply before deduplication. Status vocabulary is adapter-owned; catalog-identifier rejects any present filters member. Values are not trimmed or case-folded; lengths count Unicode scalar values.",
+            "properties": {
+              "category": {
+                "items": {
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 16,
+                "maxLength": 512,
+                "minItems": 1,
+                "minLength": 1,
+                "type": [
+                  "string",
+                  "array"
+                ]
+              },
+              "manufacturer": {
+                "items": {
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 16,
+                "maxLength": 512,
+                "minItems": 1,
+                "minLength": 1,
+                "type": [
+                  "string",
+                  "array"
+                ]
+              },
+              "status": {
+                "items": {
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 2,
+                "maxLength": 512,
+                "minItems": 1,
+                "minLength": 1,
+                "type": [
+                  "string",
+                  "array"
+                ]
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "limit": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "partition_id": {
+            "description": "Optional caller-controlled partition identity; runtime maximum 4096 UTF-8 bytes.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "query": {
+            "description": "Search text; length counts Unicode code points.",
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "limit",
+          "query"
+        ],
+        "type": "object"
+      },
+      "SearchSuccess": {
+        "additionalProperties": false,
+        "properties": {
+          "adapter": {
+            "$ref": "#/components/schemas/AdapterIdentity"
+          },
+          "complete": {
+            "const": true,
+            "type": "boolean"
+          },
+          "hits": {
+            "description": "Complete hits in adapter-defined ranking order.",
+            "items": {
+              "$ref": "#/components/schemas/Hit"
+            },
+            "maxItems": 1000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "lists": {
+            "description": "Opaque provenance in canonical role-then-name order.",
+            "items": {
+              "$ref": "#/components/schemas/ListProvenance"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "pool": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "pool_step": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "timing_us": {
+            "$ref": "#/components/schemas/TimingUS"
+          },
+          "version_attempt": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "adapter",
+          "complete",
+          "hits",
+          "lists",
+          "pool",
+          "pool_step",
+          "timing_us",
+          "version_attempt"
+        ],
+        "type": "object"
+      },
+      "TimingUS": {
+        "additionalProperties": false,
+        "properties": {
+          "backend": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "residual": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "service": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "backend",
+          "residual",
+          "service"
+        ],
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "description": "Bearer authentication; trusted tenant scope is constructed only by the service.",
+        "scheme": "bearer",
+        "type": "http"
+      }
+    }
+  },
+  "info": {
+    "description": "Canonical external description of kurn-search/service-contract/v1.",
+    "title": "Kurn Search API",
+    "version": "1"
+  },
+  "jsonSchemaDialect": "https://spec.openapis.org/oas/3.1/dialect/base",
+  "openapi": "3.1.0",
+  "paths": {
+    "/v1/search/{adapter}": {
+      "post": {
+        "description": "Refusal precedence: authenticate (401/403) → method (405) → media type (415) → route (404) → body bound/parse (400) → adapter-version pin (409) → trusted scope (403) → preflight (400/504) → admission (503/504) → execution. Physical-list names and stamps in successful responses are opaque provenance, not request inputs or management identifiers.",
+        "operationId": "search",
+        "parameters": [
+          {
+            "description": "Stable reviewed adapter route.",
+            "in": "path",
+            "name": "adapter",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "minimal": {
+                  "summary": "Minimal request",
+                  "value": {
+                    "limit": 25,
+                    "query": "AX-104"
+                  }
+                },
+                "pinned": {
+                  "summary": "Caller partition and adapter pin",
+                  "value": {
+                    "adapter_version": "v1",
+                    "limit": 25,
+                    "partition_id": "partition-neutral",
+                    "query": "AX-104"
+                  }
+                }
+              },
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "facet_alternatives": {
+                    "summary": "Complete self-excluding facet alternatives",
+                    "value": {
+                      "adapter": {
+                        "behavior_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "name": "parts-catalog-discover-facet-alternatives",
+                        "version": "v1"
+                      },
+                      "complete": true,
+                      "facets": {
+                        "category": {
+                          "basis_total": 1,
+                          "buckets": [
+                            {
+                              "count": 1,
+                              "value": "gasket"
+                            }
+                          ]
+                        },
+                        "manufacturer": {
+                          "basis_total": 2,
+                          "buckets": [
+                            {
+                              "count": 1,
+                              "value": "Northstar"
+                            },
+                            {
+                              "count": 1,
+                              "value": "Vega"
+                            }
+                          ]
+                        },
+                        "status": {
+                          "basis_total": 1,
+                          "buckets": [
+                            {
+                              "count": 1,
+                              "value": "active"
+                            }
+                          ]
+                        }
+                      },
+                      "hits": [
+                        {
+                          "entry_id": "neutral-1",
+                          "result": {
+                            "category": "gasket",
+                            "id": "neutral-1",
+                            "identifier": "AX-104",
+                            "manufacturer": "Northstar",
+                            "name": "Exhaust gasket",
+                            "status": "active",
+                            "tenant_id": "tenant-a"
+                          }
+                        }
+                      ],
+                      "lists": [
+                        {
+                          "name": "catalog-v1",
+                          "role": "identifiers",
+                          "stamp": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@1+j0+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                        }
+                      ],
+                      "pool": 128,
+                      "pool_step": 1,
+                      "timing_us": {
+                        "backend": 7,
+                        "residual": 4,
+                        "service": 11
+                      },
+                      "total_matches": 1,
+                      "version_attempt": 1
+                    }
+                  },
+                  "facets": {
+                    "summary": "Complete faceted answer",
+                    "value": {
+                      "adapter": {
+                        "behavior_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "name": "parts-catalog-discover-facets",
+                        "version": "v1"
+                      },
+                      "complete": true,
+                      "facets": {
+                        "category": [
+                          {
+                            "count": 1,
+                            "value": "gasket"
+                          }
+                        ],
+                        "manufacturer": [
+                          {
+                            "count": 1,
+                            "value": "Northstar"
+                          }
+                        ],
+                        "status": [
+                          {
+                            "count": 1,
+                            "value": "active"
+                          }
+                        ]
+                      },
+                      "hits": [
+                        {
+                          "entry_id": "neutral-1",
+                          "result": {
+                            "category": "gasket",
+                            "id": "neutral-1",
+                            "identifier": "AX-104",
+                            "manufacturer": "Northstar",
+                            "name": "Exhaust gasket",
+                            "status": "active",
+                            "tenant_id": "tenant-a"
+                          }
+                        }
+                      ],
+                      "lists": [
+                        {
+                          "name": "catalog-v1",
+                          "role": "identifiers",
+                          "stamp": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@1+j0+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                        }
+                      ],
+                      "pool": 128,
+                      "pool_step": 1,
+                      "timing_us": {
+                        "backend": 7,
+                        "residual": 4,
+                        "service": 11
+                      },
+                      "total_matches": 1,
+                      "version_attempt": 1
+                    }
+                  },
+                  "nonempty": {
+                    "summary": "Complete ranked answer",
+                    "value": {
+                      "adapter": {
+                        "behavior_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "name": "catalog-identifier",
+                        "version": "v1"
+                      },
+                      "complete": true,
+                      "hits": [
+                        {
+                          "entry_id": "neutral-1",
+                          "result": {
+                            "label": "AX-104"
+                          }
+                        }
+                      ],
+                      "lists": [
+                        {
+                          "name": "catalog-v1",
+                          "role": "identifiers",
+                          "stamp": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@1+j0+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                        }
+                      ],
+                      "pool": 128,
+                      "pool_step": 1,
+                      "timing_us": {
+                        "backend": 7,
+                        "residual": 4,
+                        "service": 11
+                      },
+                      "version_attempt": 1
+                    }
+                  },
+                  "zero_hit": {
+                    "summary": "Complete zero-hit answer",
+                    "value": {
+                      "adapter": {
+                        "behavior_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "name": "catalog-identifier",
+                        "version": "v1"
+                      },
+                      "complete": true,
+                      "hits": [],
+                      "lists": [
+                        {
+                          "name": "catalog-v1",
+                          "role": "identifiers",
+                          "stamp": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@1+j0+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                        }
+                      ],
+                      "pool": 128,
+                      "pool_step": 1,
+                      "timing_us": {
+                        "backend": 7,
+                        "residual": 4,
+                        "service": 11
+                      },
+                      "version_attempt": 1
+                    }
+                  }
+                },
+                "schema": {
+                  "description": "Ordinary routes return SearchSuccess; parts-catalog-discover-facets returns SearchFacetsSuccess, and parts-catalog-discover-facet-alternatives returns SearchFacetAlternativesSuccess with self-excluding bases.",
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SearchSuccess"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SearchFacetsSuccess"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SearchFacetAlternativesSuccess"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Complete answer only; partial answers are never returned.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "invalid_request"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error400"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: invalid_request.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "unauthenticated"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error401"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: unauthenticated.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "WWW-Authenticate": {
+                "required": true,
+                "schema": {
+                  "const": "Bearer",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "scope_refused"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error403"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: scope_refused.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "adapter_not_found"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error404"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: adapter_not_found.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "method_not_allowed"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error405"
+                }
+              }
+            },
+            "description": "Method refusal returned for a non-POST request, including an authenticated unknown route. Categories: method_not_allowed.",
+            "headers": {
+              "Allow": {
+                "required": true,
+                "schema": {
+                  "const": "POST",
+                  "type": "string"
+                }
+              },
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "adapter_version_mismatch"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error409"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: adapter_version_mismatch.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "unsupported_media_type"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error415"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: unsupported_media_type.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "incomplete_at_pool_ceiling"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error422"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: incomplete_at_pool_ceiling.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "bounded_hint": {
+                    "value": {
+                      "category": "backend_rate_limited",
+                      "retry_after_seconds": 3
+                    }
+                  },
+                  "ordinary": {
+                    "value": {
+                      "category": "backend_rate_limited"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error429"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: backend_rate_limited.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Optional integral 1–5 second hint, identical to the body carrier.",
+                "schema": {
+                  "maximum": 5,
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "internal_failure"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error500"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: internal_failure.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "502": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "adapter_resolution_failed"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error502"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: adapter_resolution_failed, backend_conflict, backend_forbidden, backend_http_error, backend_inline_error, backend_not_found, backend_protocol_error, backend_redirect, backend_unauthorized, filter_identity_mismatch, invalid_evidence, list_identity_mismatch, response_too_large, transport_failure.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "bounded_hint": {
+                    "value": {
+                      "category": "backend_overloaded",
+                      "retry_after_seconds": 3
+                    }
+                  },
+                  "ordinary": {
+                    "value": {
+                      "category": "backend_overloaded"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error503"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: backend_overloaded, service_admission_unavailable, service_queue_full.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Optional integral 1–5 second hint, identical to the body carrier.",
+                "schema": {
+                  "maximum": 5,
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "504": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ordinary": {
+                    "value": {
+                      "category": "operation_deadline"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error504"
+                }
+              }
+            },
+            "description": "Closed service refusal. Categories: operation_deadline.",
+            "headers": {
+              "Cache-Control": {
+                "required": true,
+                "schema": {
+                  "const": "no-store",
+                  "type": "string"
+                }
+              },
+              "Content-Type": {
+                "required": true,
+                "schema": {
+                  "const": "application/json",
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "required": true,
+                "schema": {
+                  "const": "nosniff",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "summary": "Search one reviewed adapter"
+      }
+    }
+  }
+}

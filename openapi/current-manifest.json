@@ -1,0 +1,104 @@
+{
+  "schema": "kurn-search-public-provenance-summary/v1",
+  "kind": "openapi",
+  "scope": "upstream evidence summary; not an inventory or attestation of the selected public source tree",
+  "upstream": {
+    "schema": "kurn-search-s6-manifest/v1",
+    "sha256": "5ec664a4331bfdc2000fee3eec9b08efcbf965a8370f3f64a961d321c32649af"
+  },
+  "public_artifacts": [
+    {
+      "name": "openapi/kurn-search.openapi.json",
+      "bytes": 47835,
+      "sha256": "2ec1f6d91bace47d068f373c6e773f0cf747cff19333520a99a9bc427476039a"
+    },
+    {
+      "name": "openapi/fixtures.json",
+      "bytes": 54192,
+      "sha256": "4102cfb70fcc76830d0ff863f3790545f2b57c70886bf9849b74b7f6c65a59e8"
+    }
+  ],
+  "evidence": {
+    "upstream_result": "PASS-S6-NEUTRAL",
+    "openapi_version": "3.1.0",
+    "fixture_counts": {
+      "admitted_errors": 28,
+      "admitted_requests": 9,
+      "admitted_successes": 4,
+      "handler_cases": 11,
+      "handler_proofs": 14,
+      "mutations": 95,
+      "schema_proofs": 130,
+      "semantic_proofs": 3,
+      "status_pairs": 28,
+      "total": 147
+    },
+    "semantic_checks": [
+      "canonical_list_order",
+      "duplicate_entry_id",
+      "retry_hint_eligibility",
+      "status_category_header_coupling"
+    ],
+    "handler": {
+      "checks": [
+        {
+          "category": "unauthenticated",
+          "id": "handler-auth-before-route",
+          "status": 401
+        },
+        {
+          "category": "method_not_allowed",
+          "id": "handler-method-before-route",
+          "status": 405
+        },
+        {
+          "category": "unsupported_media_type",
+          "id": "handler-exact-media-type",
+          "status": 415
+        },
+        {
+          "id": "handler-partition-4096",
+          "status": 200
+        },
+        {
+          "category": "invalid_request",
+          "id": "handler-partition-4097",
+          "status": 400
+        },
+        {
+          "category": "adapter_version_mismatch",
+          "id": "handler-adapter-version-32",
+          "status": 409
+        },
+        {
+          "category": "invalid_request",
+          "id": "handler-adapter-version-33",
+          "status": 400
+        },
+        {
+          "id": "handler-zero-hit-array",
+          "status": 200
+        },
+        {
+          "category": "invalid_request",
+          "id": "handler-filters-catalog-refusal",
+          "status": 400
+        },
+        {
+          "category": "invalid_request",
+          "id": "handler-filters-parts-refusal",
+          "status": 400
+        },
+        {
+          "id": "handler-filters-select-success",
+          "status": 200
+        }
+      ],
+      "result": "PASS-S6-C",
+      "schema": "kurn-search-s6-handler/v1"
+    },
+    "status_pairs": 28,
+    "service_contract_sha256": "b1584e2bd9dc897b06396fd8f09ca2192ef0ef697bf8a3f56bb9fa6f8a561698",
+    "go_version": "go1.27.0"
+  }
+}

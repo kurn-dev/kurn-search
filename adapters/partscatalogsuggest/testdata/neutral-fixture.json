@@ -1,0 +1,371 @@
+{
+  "queries": [
+    {
+      "candidates": [
+        {
+          "entry_id": "PC-009",
+          "score": 100
+        }
+      ],
+      "expected_ids": [
+        "PC-009"
+      ],
+      "id": "exact-single",
+      "request": {
+        "limit": 25,
+        "query": "GX-200"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [
+        {
+          "entry_id": "PC-009",
+          "score": 93
+        }
+      ],
+      "expected_ids": [
+        "PC-009"
+      ],
+      "id": "similar-single",
+      "request": {
+        "limit": 25,
+        "query": "GX-201"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [],
+      "expected_ids": [],
+      "id": "short-zero",
+      "request": {
+        "limit": 25,
+        "query": "Z"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [
+        {
+          "entry_id": "PC-005",
+          "score": 100
+        }
+      ],
+      "expected_ids": [
+        "PC-005"
+      ],
+      "id": "tenant-isolation",
+      "request": {
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "scope": {
+        "tenant_id": "tenant-b"
+      }
+    },
+    {
+      "candidates": [
+        {
+          "entry_id": "PC-003",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-007",
+          "score": 78
+        }
+      ],
+      "expected_ids": [
+        "PC-003",
+        "PC-007"
+      ],
+      "id": "status-filter",
+      "request": {
+        "filters": {
+          "status": "discontinued"
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [
+        {
+          "entry_id": "PC-003",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-007",
+          "score": 78
+        },
+        {
+          "entry_id": "PC-008",
+          "score": 76
+        }
+      ],
+      "expected_ids": [
+        "PC-003",
+        "PC-007",
+        "PC-008"
+      ],
+      "id": "partition-filter",
+      "request": {
+        "limit": 25,
+        "partition_id": "south",
+        "query": "AX-100"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [
+        {
+          "entry_id": "ZB-9119",
+          "score": 69
+        }
+      ],
+      "expected_ids": [
+        "ZB-9119"
+      ],
+      "id": "shared-grams-not-edit-distance",
+      "request": {
+        "filters": {
+          "category": [
+            "gasket",
+            "filter"
+          ]
+        },
+        "limit": 25,
+        "query": "ZB-9199"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [],
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-004",
+        "PC-010",
+        "PC-011"
+      ],
+      "fallback_candidates": [
+        {
+          "entry_id": "PC-001",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-002",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-003",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-004",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-010",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-011",
+          "score": 100
+        }
+      ],
+      "id": "transposition-fallback",
+      "request": {
+        "limit": 25,
+        "query": "XA-100"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [],
+      "expected_ids": [],
+      "fallback_candidates": [],
+      "id": "transposition-miss",
+      "request": {
+        "limit": 25,
+        "query": "GX-021"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [
+        {
+          "entry_id": "PC-012",
+          "score": 66
+        }
+      ],
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-004",
+        "PC-010",
+        "PC-011"
+      ],
+      "fallback_candidates": [
+        {
+          "entry_id": "PC-001",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-002",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-003",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-004",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-010",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-011",
+          "score": 100
+        }
+      ],
+      "id": "osa1-fallback-on-nonempty-pool",
+      "policies": [
+        "osa1",
+        "osa1-060"
+      ],
+      "request": {
+        "limit": 25,
+        "query": "XA-100"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [
+        {
+          "entry_id": "ZB-9000",
+          "score": 71
+        }
+      ],
+      "expected_ids": [],
+      "fallback_candidates": [],
+      "id": "osa1-rejects-distance-two",
+      "policies": [
+        "osa1",
+        "osa1-060"
+      ],
+      "request": {
+        "limit": 25,
+        "query": "ZB-0009"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [
+        {
+          "entry_id": "PC-001",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-012",
+          "score": 66
+        }
+      ],
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-004",
+        "PC-010",
+        "PC-011"
+      ],
+      "fallback_candidates": [
+        {
+          "entry_id": "PC-001",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-002",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-003",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-004",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-010",
+          "score": 100
+        },
+        {
+          "entry_id": "PC-011",
+          "score": 100
+        }
+      ],
+      "id": "union-duplicate-across-branches",
+      "policies": [
+        "osa1-060-union"
+      ],
+      "request": {
+        "limit": 25,
+        "query": "XA-100"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    },
+    {
+      "candidates": [
+        {
+          "entry_id": "PC-001",
+          "score": 100
+        }
+      ],
+      "expected_ids": [
+        "PC-001"
+      ],
+      "fallback_candidates": [],
+      "id": "union-case-adjacent-variant",
+      "policies": [
+        "osa1-060-union"
+      ],
+      "request": {
+        "limit": 25,
+        "query": "aA-100"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      }
+    }
+  ],
+  "schema": "kurn-search/parts-catalog-suggest-fixture/v1",
+  "source_fixture_sha256": "d6b7e113dd01d43ec108ab8eee54ef4ea59af5d0cca22b3b0f3a058efc1aa57c"
+}

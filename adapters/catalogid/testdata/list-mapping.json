@@ -1,0 +1,21 @@
+{
+  "format": "ndjson",
+  "id": "id",
+  "keys": [
+    {"path": "key"}
+  ],
+  "payload": {
+    "id": "id",
+    "identifier": "identifier",
+    "tenant_id": "tenant_id",
+    "partition_id": "partition_id"
+  },
+  "list": {
+    "analyzer": {"steps": []},
+    "match": {"mode": "exact"},
+    "filterable": [
+      {"name": "tenant_id", "path": "tenant_id"},
+      {"name": "partition_id", "path": "partition_id"}
+    ]
+  }
+}

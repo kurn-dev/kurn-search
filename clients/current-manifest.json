@@ -1,0 +1,147 @@
+{
+  "schema": "kurn-search-public-provenance-summary/v1",
+  "kind": "clients",
+  "scope": "upstream evidence summary; not an inventory or attestation of the selected public source tree",
+  "upstream": {
+    "schema": "kurn-search-s7-clients-manifest/v1",
+    "sha256": "ab3651305090ab05160b3c2c3bf19929b06fefb6225e90790f1a1ca425761529"
+  },
+  "public_artifacts": [
+    {
+      "name": "clients/python/kurn_search_client/__init__.py",
+      "bytes": 1065,
+      "sha256": "e4f5bb42bf6003eb224bac27b72bc415e4abaddb9777b1013e6eb52d34c8db66"
+    },
+    {
+      "name": "clients/python/kurn_search_client/generated.py",
+      "bytes": 27316,
+      "sha256": "c0dfb24ce01d32587dc963da0e1835078f82f59a0a3e2a6cc588e36611bb9a95"
+    },
+    {
+      "name": "clients/typescript/generated/client.d.ts",
+      "bytes": 5811,
+      "sha256": "b90c6f2651d1d32ada79c9e7d25d168502f6edcf8c0717fce08ec536ec1e19d4"
+    },
+    {
+      "name": "clients/typescript/generated/client.mjs",
+      "bytes": 20826,
+      "sha256": "0dc759641028d2a8a38f68b32162cfa4874a2646be255ffc8b53829a73970e9a"
+    },
+    {
+      "name": "clients/typescript/package.json",
+      "bytes": 212,
+      "sha256": "07fa63444cfdbfbb45f99535652fee3a2db53ac34fb963f5b05d35683e10e88a"
+    }
+  ],
+  "evidence": {
+    "upstream_result": "PASS-S7-CLIENTS",
+    "conformance": {
+      "additive_acceptance": 1,
+      "api_error_equalities": 24,
+      "auth_redaction_cases": 3,
+      "cancellation_cases": 1,
+      "client_cases": 55,
+      "client_preflight_cases": 18,
+      "protocol_failure_equalities": 8,
+      "real_handler_cases": 28,
+      "redirect_no_follow": 1,
+      "request_byte_equalities": 37,
+      "scripted_response_cases": 9,
+      "semantic_verifier_equalities": 5,
+      "success_equalities": 5,
+      "throttle_no_retry": 2
+    },
+    "dispositions": {
+      "client_preflight": 38,
+      "real_handler": 52,
+      "scripted_response": 43,
+      "semantic_verifier": 3,
+      "upstream_only": 11
+    },
+    "models": {
+      "api_error_pairs": 27,
+      "operations": 1,
+      "python_error_types": 13,
+      "requests": 5,
+      "successes": 3,
+      "typescript_error_union_branches": 13
+    },
+    "proofs": {
+      "handler": 14,
+      "schema": 130,
+      "semantic": 3,
+      "total": 147
+    },
+    "public_exports": {
+      "types": [
+        "ApiErrorValue",
+        "FacetAlternativeGroup",
+        "FacetAlternatives",
+        "FacetBucket",
+        "Facets",
+        "PartsCatalogDiscoverFacetAlternativesRequest",
+        "PartsCatalogDiscoverFacetsRequest",
+        "PartsCatalogDiscoverRequest",
+        "PartsCatalogSelectRequest",
+        "PartsCatalogSuggestRequest",
+        "SearchFacetAlternativesSuccess",
+        "SearchFacetsSuccess",
+        "SearchRequest",
+        "SearchSuccess"
+      ],
+      "values": [
+        "ApiError",
+        "ClientError",
+        "KurnSearchClient",
+        "PROTOCOL_ERROR_REASONS",
+        "ProtocolError",
+        "SEMANTIC_CHECKS",
+        "verify"
+      ]
+    },
+    "semantic_checks": [
+      "canonical_list_order",
+      "duplicate_entry_id",
+      "retry_hint_eligibility",
+      "status_category_header_coupling"
+    ],
+    "status_pairs": {
+      "adapter_not_found": 404,
+      "adapter_resolution_failed": 502,
+      "adapter_version_mismatch": 409,
+      "backend_conflict": 502,
+      "backend_forbidden": 502,
+      "backend_http_error": 502,
+      "backend_inline_error": 502,
+      "backend_not_found": 502,
+      "backend_overloaded": 503,
+      "backend_protocol_error": 502,
+      "backend_rate_limited": 429,
+      "backend_redirect": 502,
+      "backend_unauthorized": 502,
+      "filter_identity_mismatch": 502,
+      "incomplete_at_pool_ceiling": 422,
+      "internal_failure": 500,
+      "invalid_evidence": 502,
+      "invalid_request": 400,
+      "list_identity_mismatch": 502,
+      "method_not_allowed": 405,
+      "operation_deadline": 504,
+      "response_too_large": 502,
+      "scope_refused": 403,
+      "service_admission_unavailable": 503,
+      "service_queue_full": 503,
+      "transport_failure": 502,
+      "unauthenticated": 401,
+      "unsupported_media_type": 415
+    },
+    "upstream_openapi_receipt_sha256": "5ec664a4331bfdc2000fee3eec9b08efcbf965a8370f3f64a961d321c32649af",
+    "generation_header_manifest_sha256": "cd11de188437b28741856d0a84df511a00ef09ce5db6a209d0fc541909abb15b",
+    "upstream_typescript_compiler_verification": "not_performed",
+    "runtimes": {
+      "go": "go1.27.0",
+      "node": "v25.6.1",
+      "python": "Python 3.14.5"
+    }
+  }
+}

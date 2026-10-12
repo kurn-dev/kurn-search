@@ -1,0 +1,1 @@
+{"name":"kurn-prepared-parts-suggest-consumer","private":true,"type":"module","dependencies":{"@kurn-dev/kurn-search-client-private":"file:../../../clients/typescript"}}

@@ -1,0 +1,1964 @@
+{
+  "claim": "one deterministic canonical OpenAPI description conforms to the delivered private S5.1 service surface under pinned neutral fixtures",
+  "counts": {
+    "admitted_errors": 28,
+    "admitted_requests": 9,
+    "admitted_successes": 4,
+    "handler_cases": 11,
+    "handler_proofs": 14,
+    "mutations": 95,
+    "schema_proofs": 130,
+    "semantic_proofs": 3,
+    "status_pairs": 28,
+    "total": 147
+  },
+  "fixtures": [
+    {
+      "body": {
+        "category": "adapter_not_found"
+      },
+      "category": "adapter_not_found",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-adapter_not_found",
+      "proof": "schema",
+      "status": 404
+    },
+    {
+      "body": {
+        "category": "adapter_resolution_failed"
+      },
+      "category": "adapter_resolution_failed",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-adapter_resolution_failed",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "adapter_version_mismatch"
+      },
+      "category": "adapter_version_mismatch",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-adapter_version_mismatch",
+      "proof": "schema",
+      "status": 409
+    },
+    {
+      "body": {
+        "category": "backend_conflict"
+      },
+      "category": "backend_conflict",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-backend_conflict",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "backend_forbidden"
+      },
+      "category": "backend_forbidden",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-backend_forbidden",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "backend_http_error"
+      },
+      "category": "backend_http_error",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-backend_http_error",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "backend_inline_error"
+      },
+      "category": "backend_inline_error",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-backend_inline_error",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "backend_not_found"
+      },
+      "category": "backend_not_found",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-backend_not_found",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "backend_overloaded"
+      },
+      "category": "backend_overloaded",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-backend_overloaded",
+      "proof": "schema",
+      "status": 503
+    },
+    {
+      "body": {
+        "category": "backend_protocol_error"
+      },
+      "category": "backend_protocol_error",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-backend_protocol_error",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "backend_rate_limited"
+      },
+      "category": "backend_rate_limited",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-backend_rate_limited",
+      "proof": "schema",
+      "status": 429
+    },
+    {
+      "body": {
+        "category": "backend_redirect"
+      },
+      "category": "backend_redirect",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-backend_redirect",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "backend_unauthorized"
+      },
+      "category": "backend_unauthorized",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-backend_unauthorized",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "error-category-status-mismatch",
+      "mutation": "category mapped to a different status",
+      "proof": "schema",
+      "target": "error"
+    },
+    {
+      "body": {
+        "category": "filter_identity_mismatch"
+      },
+      "category": "filter_identity_mismatch",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-filter_identity_mismatch",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "error-fractional-hint",
+      "mutation": "fractional body hint",
+      "proof": "schema",
+      "target": "error"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "error-hint-header-body-mismatch",
+      "mutation": "Retry-After differs from retry_after_seconds",
+      "proof": "semantic",
+      "target": "error"
+    },
+    {
+      "body": {
+        "category": "incomplete_at_pool_ceiling"
+      },
+      "category": "incomplete_at_pool_ceiling",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-incomplete_at_pool_ceiling",
+      "proof": "schema",
+      "status": 422
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "error-ineligible-hint",
+      "mutation": "hint on status other than 429 or 503",
+      "proof": "schema",
+      "target": "error"
+    },
+    {
+      "body": {
+        "category": "internal_failure"
+      },
+      "category": "internal_failure",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-internal_failure",
+      "proof": "schema",
+      "status": 500
+    },
+    {
+      "body": {
+        "category": "invalid_evidence"
+      },
+      "category": "invalid_evidence",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-invalid_evidence",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "invalid_request"
+      },
+      "category": "invalid_request",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-invalid_request",
+      "proof": "schema",
+      "status": 400
+    },
+    {
+      "body": {
+        "category": "list_identity_mismatch"
+      },
+      "category": "list_identity_mismatch",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-list_identity_mismatch",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "method_not_allowed"
+      },
+      "category": "method_not_allowed",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Allow": "POST",
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-method_not_allowed",
+      "proof": "schema",
+      "status": 405
+    },
+    {
+      "body": {
+        "category": "operation_deadline"
+      },
+      "category": "operation_deadline",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-operation_deadline",
+      "proof": "schema",
+      "status": 504
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "error-raw-backend-prose",
+      "mutation": "undocumented raw prose member",
+      "proof": "schema",
+      "target": "error"
+    },
+    {
+      "body": {
+        "category": "response_too_large"
+      },
+      "category": "response_too_large",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-response_too_large",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "scope_refused"
+      },
+      "category": "scope_refused",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-scope_refused",
+      "proof": "schema",
+      "status": 403
+    },
+    {
+      "body": {
+        "category": "service_admission_unavailable"
+      },
+      "category": "service_admission_unavailable",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-service_admission_unavailable",
+      "proof": "schema",
+      "status": 503
+    },
+    {
+      "body": {
+        "category": "service_queue_full"
+      },
+      "category": "service_queue_full",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-service_queue_full",
+      "proof": "schema",
+      "status": 503
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "error-six-second-hint",
+      "mutation": "hint over maximum",
+      "proof": "schema",
+      "target": "error",
+      "value": 6,
+      "value_unit": "seconds"
+    },
+    {
+      "body": {
+        "category": "transport_failure"
+      },
+      "category": "transport_failure",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-transport_failure",
+      "proof": "schema",
+      "status": 502
+    },
+    {
+      "body": {
+        "category": "unauthenticated"
+      },
+      "category": "unauthenticated",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "WWW-Authenticate": "Bearer",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-unauthenticated",
+      "proof": "schema",
+      "status": 401
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "error-undocumented-member",
+      "mutation": "add response member",
+      "proof": "schema",
+      "target": "error"
+    },
+    {
+      "body": {
+        "category": "unsupported_media_type"
+      },
+      "category": "unsupported_media_type",
+      "class": "error",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "id": "error-unsupported_media_type",
+      "proof": "schema",
+      "status": 415
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "error-zero-second-hint",
+      "mutation": "hint below minimum",
+      "proof": "schema",
+      "target": "error",
+      "value_unit": "seconds"
+    },
+    {
+      "category": "adapter_version_mismatch",
+      "class": "handler",
+      "expected": "refuse",
+      "handler_case": "handler-adapter-version-32",
+      "id": "handler-adapter-version-32",
+      "mutation": "adapter_version bytes",
+      "proof": "handler",
+      "status": 409,
+      "value": 32,
+      "value_unit": "utf8_bytes"
+    },
+    {
+      "category": "invalid_request",
+      "class": "handler",
+      "expected": "refuse",
+      "handler_case": "handler-adapter-version-33",
+      "id": "handler-adapter-version-33",
+      "mutation": "adapter_version bytes",
+      "proof": "handler",
+      "status": 400,
+      "value": 33,
+      "value_unit": "utf8_bytes"
+    },
+    {
+      "category": "unauthenticated",
+      "class": "handler",
+      "expected": "refuse",
+      "handler_case": "handler-auth-before-route",
+      "id": "handler-auth-before-route",
+      "mutation": "unauthenticated unknown route",
+      "proof": "handler",
+      "status": 401
+    },
+    {
+      "category": "unsupported_media_type",
+      "class": "handler",
+      "expected": "refuse",
+      "handler_case": "handler-exact-media-type",
+      "id": "handler-exact-media-type",
+      "mutation": "application/json with parameters",
+      "proof": "handler",
+      "status": 415
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "bearing"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "category": "invalid_request",
+      "class": "handler",
+      "expected": "refuse",
+      "handler_case": "handler-filters-catalog-refusal",
+      "id": "handler-filters-catalog-refusal",
+      "proof": "handler",
+      "status": 400
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "bearing"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "category": "invalid_request",
+      "class": "handler",
+      "expected": "refuse",
+      "handler_case": "handler-filters-parts-refusal",
+      "id": "handler-filters-parts-refusal",
+      "proof": "handler",
+      "status": 400
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "bearing"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "handler",
+      "expected": "admit",
+      "handler_case": "handler-filters-select-success",
+      "id": "handler-filters-select-success",
+      "proof": "handler",
+      "status": 200
+    },
+    {
+      "category": "method_not_allowed",
+      "class": "handler",
+      "expected": "refuse",
+      "handler_case": "handler-method-before-route",
+      "id": "handler-method-before-route",
+      "mutation": "authenticated non-POST unknown route",
+      "proof": "handler",
+      "status": 405
+    },
+    {
+      "class": "handler",
+      "expected": "admit",
+      "handler_case": "handler-partition-4096",
+      "id": "handler-partition-4096",
+      "mutation": "partition_id bytes",
+      "proof": "handler",
+      "status": 200,
+      "value": 4096,
+      "value_unit": "utf8_bytes"
+    },
+    {
+      "category": "invalid_request",
+      "class": "handler",
+      "expected": "refuse",
+      "handler_case": "handler-partition-4097",
+      "id": "handler-partition-4097",
+      "mutation": "partition_id bytes",
+      "proof": "handler",
+      "status": 400,
+      "value": 4097,
+      "value_unit": "utf8_bytes"
+    },
+    {
+      "class": "handler",
+      "expected": "admit",
+      "handler_case": "handler-zero-hit-array",
+      "id": "handler-zero-hit-array",
+      "mutation": "zero-hit response encodes hits array",
+      "proof": "handler",
+      "status": 200
+    },
+    {
+      "category": "invalid_request",
+      "class": "mutation",
+      "expected": "refuse",
+      "handler_case": "handler-adapter-version-33",
+      "id": "request-adapter-version-33-bytes",
+      "mutation": "adapter_version bytes",
+      "proof": "handler",
+      "status": 400,
+      "target": "request",
+      "value": 33,
+      "value_unit": "utf8_bytes"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-adapter-version-empty",
+      "mutation": "empty adapter_version",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-adapter-version-null",
+      "proof": "schema",
+      "target": "request",
+      "wire": "{\"adapter_version\":null,\"limit\":25,\"query\":\"AX-104\"}"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-body-over-limit",
+      "mutation": "body bytes",
+      "proof": "schema",
+      "target": "request",
+      "value": 1048577,
+      "value_unit": "bytes"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-duplicate-query",
+      "proof": "schema",
+      "target": "request",
+      "wire": "{\"query\":\"AX-104\",\"query\":\"AX-105\",\"limit\":25}"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-exponent-limit",
+      "proof": "schema",
+      "target": "request",
+      "wire": "{\"limit\":1e1,\"query\":\"AX-104\"}"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": "bearing",
+          "manufacturer": "Northstar",
+          "status": "active"
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "request",
+      "expected": "admit",
+      "id": "request-filters-all",
+      "proof": "schema"
+    },
+    {
+      "body": {
+        "filters": [],
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing",
+            "bearing"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-category-over",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "status": [
+            "active",
+            "active"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "request",
+      "expected": "admit",
+      "id": "request-filters-array-duplicates",
+      "proof": "schema"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": []
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-empty",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "manufacturer": [
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar",
+            "Northstar"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-manufacturer-over",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            [
+              "bearing"
+            ]
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-member-array",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "bearing",
+            true
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-member-boolean",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "bearing",
+            ""
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-member-empty",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "bearing",
+            null
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-member-null",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "bearing",
+            1
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-member-number",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            {
+              "eq": "bearing"
+            }
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-member-object",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-member-over",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-member-surrogate",
+      "proof": "schema",
+      "target": "request",
+      "wire": "{\"filters\":{\"category\":[\"\\uD800\"]},\"limit\":25,\"query\":\"AX-100\"}"
+    },
+    {
+      "body": {
+        "filters": {
+          "status": [
+            "active",
+            "active",
+            "active"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-array-status-over",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "manufacturer": [
+            "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "request",
+      "expected": "admit",
+      "id": "request-filters-array-unicode-bound",
+      "proof": "schema"
+    },
+    {
+      "body": {
+        "filters": {},
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "request",
+      "expected": "admit",
+      "id": "request-filters-empty",
+      "proof": "schema"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "bearing",
+            "filter"
+          ],
+          "manufacturer": "Northstar",
+          "status": [
+            "active",
+            "discontinued"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "request",
+      "expected": "admit",
+      "id": "request-filters-multiselect",
+      "proof": "schema"
+    },
+    {
+      "body": {
+        "filters": null,
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-null",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": 1,
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-number",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "manufacturer": "Northstar"
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "request",
+      "expected": "admit",
+      "id": "request-filters-single",
+      "proof": "schema"
+    },
+    {
+      "body": {
+        "filters": "active",
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-string",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "tenant_id": "tenant-a"
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-unknown-name",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": [
+            "bearing"
+          ]
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "request",
+      "expected": "admit",
+      "id": "request-filters-value-array",
+      "proof": "schema"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": true
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-value-boolean",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": ""
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-value-empty",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": null
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-value-null",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": 1
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-value-number",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": {
+            "eq": "bearing"
+          }
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-value-object",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "filters": {
+          "category": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀"
+        },
+        "limit": 25,
+        "query": "AX-100"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-filters-value-over-scalars",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-fractional-limit",
+      "proof": "schema",
+      "target": "request",
+      "wire": "{\"limit\":1.5,\"query\":\"AX-104\"}"
+    },
+    {
+      "body": {
+        "adapter_version": "v1",
+        "limit": 25,
+        "partition_id": "partition-neutral",
+        "query": "AX-104"
+      },
+      "class": "request",
+      "expected": "admit",
+      "id": "request-fully-pinned",
+      "proof": "schema"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-invalid-utf8",
+      "proof": "schema",
+      "target": "request",
+      "wire_hex": "7b227175657279223a22ff222c226c696d6974223a32357d"
+    },
+    {
+      "body": {
+        "limit": 0,
+        "query": "AX-104"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-limit-below",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "limit": 1001,
+        "query": "AX-104"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-limit-over",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "limit": 25,
+        "query": "AX-104"
+      },
+      "class": "request",
+      "expected": "admit",
+      "id": "request-minimal",
+      "proof": "schema"
+    },
+    {
+      "body": {
+        "query": "AX-104"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-missing-limit",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "limit": 25
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-missing-query",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "limit": 25,
+        "query": null
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-null-query",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "category": "invalid_request",
+      "class": "mutation",
+      "expected": "refuse",
+      "handler_case": "handler-partition-4097",
+      "id": "request-partition-4097-bytes",
+      "mutation": "partition_id bytes",
+      "proof": "handler",
+      "status": 400,
+      "target": "request",
+      "value": 4097,
+      "value_unit": "utf8_bytes"
+    },
+    {
+      "body": {
+        "limit": 25,
+        "partition_id": "",
+        "query": "AX-104"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-partition-empty",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "limit": 25,
+        "query": ""
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-query-empty",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-query-over-runes",
+      "mutation": "query code points",
+      "proof": "schema",
+      "target": "request",
+      "value": 257,
+      "value_unit": "unicode_code_points"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-reversed-surrogates",
+      "proof": "schema",
+      "target": "request",
+      "wire": "{\"limit\":25,\"query\":\"\\uDC00\\uD800\"}"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-string-limit",
+      "proof": "schema",
+      "target": "request",
+      "wire": "{\"limit\":\"25\",\"query\":\"AX-104\"}"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-trailing-json",
+      "proof": "schema",
+      "target": "request",
+      "wire": "{\"limit\":25,\"query\":\"AX-104\"}{}"
+    },
+    {
+      "body": {
+        "limit": 25,
+        "query": "AX-104",
+        "scope_input": "opaque-neutral"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-trusted-scope-smuggling",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "body": {
+        "extra": true,
+        "limit": 25,
+        "query": "AX-104"
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-unknown-member",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-unpaired-high-surrogate",
+      "proof": "schema",
+      "target": "request",
+      "wire": "{\"limit\":25,\"query\":\"\\uD800\"}"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-unpaired-low-surrogate",
+      "proof": "schema",
+      "target": "request",
+      "wire": "{\"limit\":25,\"query\":\"\\uDC00\"}"
+    },
+    {
+      "category": "unsupported_media_type",
+      "class": "mutation",
+      "expected": "refuse",
+      "handler_case": "handler-exact-media-type",
+      "id": "request-wrong-media-type",
+      "mutation": "content-type is not exact application/json",
+      "proof": "handler",
+      "status": 415,
+      "target": "request"
+    },
+    {
+      "body": {
+        "limit": 25,
+        "query": 104
+      },
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "request-wrong-query-type",
+      "proof": "schema",
+      "target": "request"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-adapter-missing",
+      "mutation": "remove adapter",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-behavior-digest-invalid",
+      "mutation": "behavior_sha256 is not 64 lowercase hex",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-complete-false",
+      "mutation": "complete false",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-duplicate-entry-id",
+      "mutation": "duplicate hit entry_id",
+      "proof": "semantic",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-entry-id-empty",
+      "mutation": "empty entry_id",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-extra-adapter-member",
+      "mutation": "add adapter member",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-extra-hit-member",
+      "mutation": "add hit member",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-extra-list-member",
+      "mutation": "add list member",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-extra-timing-member",
+      "mutation": "add timing member",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "body": {
+        "adapter": {
+          "behavior_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "name": "parts-catalog-discover-facet-alternatives",
+          "version": "v1"
+        },
+        "complete": true,
+        "facets": {
+          "category": {
+            "basis_total": 1,
+            "buckets": [
+              {
+                "count": 1,
+                "value": "gasket"
+              }
+            ]
+          },
+          "manufacturer": {
+            "basis_total": 2,
+            "buckets": [
+              {
+                "count": 1,
+                "value": "Northstar"
+              },
+              {
+                "count": 1,
+                "value": "Vega"
+              }
+            ]
+          },
+          "status": {
+            "basis_total": 1,
+            "buckets": [
+              {
+                "count": 1,
+                "value": "active"
+              }
+            ]
+          }
+        },
+        "hits": [
+          {
+            "entry_id": "neutral-1",
+            "result": {
+              "category": "gasket",
+              "id": "neutral-1",
+              "identifier": "AX-104",
+              "manufacturer": "Northstar",
+              "name": "Exhaust gasket",
+              "status": "active",
+              "tenant_id": "tenant-a"
+            }
+          }
+        ],
+        "lists": [
+          {
+            "name": "catalog-v1",
+            "role": "identifiers",
+            "stamp": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@1+j0+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          }
+        ],
+        "pool": 128,
+        "pool_step": 1,
+        "timing_us": {
+          "backend": 7,
+          "residual": 4,
+          "service": 11
+        },
+        "total_matches": 1,
+        "version_attempt": 1
+      },
+      "class": "success",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json"
+      },
+      "id": "success-facet-alternatives",
+      "proof": "schema",
+      "status": 200
+    },
+    {
+      "body": {
+        "adapter": {
+          "behavior_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "name": "parts-catalog-discover-facets",
+          "version": "v1"
+        },
+        "complete": true,
+        "facets": {
+          "category": [
+            {
+              "count": 1,
+              "value": "gasket"
+            }
+          ],
+          "manufacturer": [
+            {
+              "count": 1,
+              "value": "Northstar"
+            }
+          ],
+          "status": [
+            {
+              "count": 1,
+              "value": "active"
+            }
+          ]
+        },
+        "hits": [
+          {
+            "entry_id": "neutral-1",
+            "result": {
+              "category": "gasket",
+              "id": "neutral-1",
+              "identifier": "AX-104",
+              "manufacturer": "Northstar",
+              "name": "Exhaust gasket",
+              "status": "active",
+              "tenant_id": "tenant-a"
+            }
+          }
+        ],
+        "lists": [
+          {
+            "name": "catalog-v1",
+            "role": "identifiers",
+            "stamp": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@1+j0+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          }
+        ],
+        "pool": 128,
+        "pool_step": 1,
+        "timing_us": {
+          "backend": 7,
+          "residual": 4,
+          "service": 11
+        },
+        "total_matches": 1,
+        "version_attempt": 1
+      },
+      "class": "success",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json"
+      },
+      "id": "success-facets",
+      "proof": "schema",
+      "status": 200
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-hits-null",
+      "mutation": "hits null",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-hits-over-limit",
+      "mutation": "1001 hits",
+      "proof": "schema",
+      "target": "success",
+      "value": 1001,
+      "value_unit": "items"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-lists-empty",
+      "mutation": "empty lists",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-lists-out-of-order",
+      "mutation": "lists not role-then-name ordered",
+      "proof": "semantic",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-adapter-behavior",
+      "mutation": "remove adapter.behavior_sha256",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-adapter-name",
+      "mutation": "remove adapter.name",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-adapter-version",
+      "mutation": "remove adapter.version",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-complete",
+      "mutation": "remove complete",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-hit-entry-id",
+      "mutation": "remove hit.entry_id",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-hit-result",
+      "mutation": "remove hit.result",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-hits",
+      "mutation": "remove hits",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-list-name",
+      "mutation": "remove list.name",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-list-role",
+      "mutation": "remove list.role",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-list-stamp",
+      "mutation": "remove list.stamp",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-lists",
+      "mutation": "remove lists",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-pool",
+      "mutation": "remove pool",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-pool-step",
+      "mutation": "remove pool_step",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-timing",
+      "mutation": "remove timing_us",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-timing-backend",
+      "mutation": "remove timing_us.backend",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-timing-residual",
+      "mutation": "remove timing_us.residual",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-timing-service",
+      "mutation": "remove timing_us.service",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-missing-version-attempt",
+      "mutation": "remove version_attempt",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-non-array-hits",
+      "mutation": "hits is not an array",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "body": {
+        "adapter": {
+          "behavior_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "name": "catalog-identifier",
+          "version": "v1"
+        },
+        "complete": true,
+        "hits": [
+          {
+            "entry_id": "neutral-1",
+            "result": {
+              "label": "AX-104"
+            }
+          }
+        ],
+        "lists": [
+          {
+            "name": "catalog-v1",
+            "role": "identifiers",
+            "stamp": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@1+j0+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          }
+        ],
+        "pool": 128,
+        "pool_step": 1,
+        "timing_us": {
+          "backend": 7,
+          "residual": 4,
+          "service": 11
+        },
+        "version_attempt": 1
+      },
+      "class": "success",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json"
+      },
+      "id": "success-nonempty",
+      "proof": "schema",
+      "status": 200
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-null-result",
+      "mutation": "hit result null",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-pool-step-zero",
+      "mutation": "pool_step zero",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-pool-zero",
+      "mutation": "pool zero",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-timing-negative",
+      "mutation": "negative timing member",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-undocumented-member",
+      "mutation": "add response member",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "class": "mutation",
+      "expected": "refuse",
+      "id": "success-version-attempt-zero",
+      "mutation": "version_attempt zero",
+      "proof": "schema",
+      "target": "success"
+    },
+    {
+      "body": {
+        "adapter": {
+          "behavior_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "name": "catalog-identifier",
+          "version": "v1"
+        },
+        "complete": true,
+        "hits": [],
+        "lists": [
+          {
+            "name": "catalog-v1",
+            "role": "identifiers",
+            "stamp": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@1+j0+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          }
+        ],
+        "pool": 128,
+        "pool_step": 1,
+        "timing_us": {
+          "backend": 7,
+          "residual": 4,
+          "service": 11
+        },
+        "version_attempt": 1
+      },
+      "class": "success",
+      "expected": "admit",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Content-Type": "application/json"
+      },
+      "id": "success-zero-hit",
+      "proof": "schema",
+      "status": 200
+    }
+  ],
+  "schema": "kurn-search/openapi-fixtures/v1"
+}

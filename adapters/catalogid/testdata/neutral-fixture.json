@@ -1,0 +1,29 @@
+{
+  "schema": "kurn-search/catalog-identifier-fixture/v1",
+  "records": [
+    {"id":"a-exact","identifier":"ABC-123","tenant_id":"tenant-1","partition_id":"partition-1"},
+    {"id":"b-prefix","identifier":"ABC999 tail","tenant_id":"tenant-1","partition_id":"partition-1"},
+    {"id":"c-suffix","identifier":"head 999ABC","tenant_id":"tenant-1","partition_id":"partition-1"},
+    {"id":"d-word","identifier":"BOX ABC LOT","tenant_id":"tenant-1","partition_id":"partition-1"},
+    {"id":"e-accent","identifier":"ÅBC-123","tenant_id":"tenant-1","partition_id":"partition-1"},
+    {"id":"f-spaces","identifier":" ABC  123 ","tenant_id":"tenant-1","partition_id":"partition-1"},
+    {"id":"g-pate","identifier":"PÂTE-777","tenant_id":"tenant-1","partition_id":"partition-1"},
+    {"id":"h-dotted-i","identifier":"ZZ-İST-YY","tenant_id":"tenant-1","partition_id":"partition-1"},
+    {"id":"i-astral-😀","identifier":"😀ABC😀","tenant_id":"tenant-1","partition_id":"partition-1"},
+    {"id":"i-private-","identifier":"ABC","tenant_id":"tenant-1","partition_id":"partition-1"},
+    {"id":"j-other-partition","identifier":"ABC-123","tenant_id":"tenant-1","partition_id":"partition-2"},
+    {"id":"k-other-tenant","identifier":"ABC-123","tenant_id":"tenant-2","partition_id":"partition-1"},
+    {"id":"l-no-partition","identifier":"LOT/ABC/FINAL","tenant_id":"tenant-1"}
+  ],
+  "queries": [
+    {"id":"q-exact","request":{"query":"ABC-123","partition_id":"partition-1","limit":25},"scope":{"tenant_id":"tenant-1"}},
+    {"id":"q-tier","request":{"query":"abc","partition_id":"partition-1","limit":25},"scope":{"tenant_id":"tenant-1"}},
+    {"id":"q-short","request":{"query":"AB","partition_id":"partition-1","limit":25},"scope":{"tenant_id":"tenant-1"}},
+    {"id":"q-spaces","request":{"query":" ABC  123 ","partition_id":"partition-1","limit":25},"scope":{"tenant_id":"tenant-1"}},
+    {"id":"q-fold","request":{"query":"pate","partition_id":"partition-1","limit":25},"scope":{"tenant_id":"tenant-1"}},
+    {"id":"q-dotted","request":{"query":"ist","partition_id":"partition-1","limit":25},"scope":{"tenant_id":"tenant-1"}},
+    {"id":"q-astral","request":{"query":"😀abc😀","partition_id":"partition-1","limit":25},"scope":{"tenant_id":"tenant-1"}},
+    {"id":"q-scope","request":{"query":"ABC-123","partition_id":"partition-2","limit":25},"scope":{"tenant_id":"tenant-1"}},
+    {"id":"q-no-partition","request":{"query":"abc","limit":25},"scope":{"tenant_id":"tenant-1"}}
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "format": "ndjson",
+  "id": "id",
+  "keys": [
+    {"path": "keys"}
+  ],
+  "payload": {
+    "category": "category",
+    "id": "id",
+    "identifier": "identifier",
+    "manufacturer": "manufacturer",
+    "name": "name",
+    "partition_id": "partition_id",
+    "status": "status",
+    "tenant_id": "tenant_id"
+  },
+  "list": {
+    "analyzer": {"steps": []},
+    "match": {"mode": "exact"},
+    "filterable": [
+      {"name": "category", "path": "category"},
+      {"name": "manufacturer", "path": "manufacturer"},
+      {"name": "partition_id", "path": "partition_id"},
+      {"name": "status", "path": "status"},
+      {"name": "tenant_id", "path": "tenant_id"}
+    ]
+  }
+}

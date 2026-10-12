@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.json","files":["src/parts-suggest.ts","negative/invalid.ts"]}

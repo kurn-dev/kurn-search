@@ -1,0 +1,1067 @@
+{
+  "schema": "kurn-search-analyzer-neutral/v1",
+  "source": {
+    "analysis_sha256": "127d2b43363b2950b3b7a995020b3c01c8920922d64dfbf9987ef27c261869d0",
+    "b1_manifest_sha256": "f79eff1b73cf505d839225884b1062b91f517407561a4fe044c9f3552280e225",
+    "b1_fixtures_sha256": "4ef6225e892460897fab706fcf295c1f73eac5ff9a1f148a22ac66051d256fef",
+    "b1_results_sha256": "1fb69d4c7792bde81eb1224fd7c22efcdbecba408fe19d6ac2e396d99a526eba",
+    "local_authority": "Node 25.6.1 / ICU 78.2 / Unicode 17.0 / CLDR 48.0",
+    "oracle_authority": "Elasticsearch 8.19.19 / Lucene 9.12.2"
+  },
+  "fixtures": [
+    {
+      "cases": [
+        {
+          "local_terms": [
+            ""
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "empty",
+      "text": ""
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "  \t  "
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "whitespace",
+      "text": "  \t  "
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "ab"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "ab"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "ab"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "length-2",
+      "text": "AB"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "length-3",
+      "text": "ABC"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "abcdefghijklmnopqrst"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "abc",
+            "abcd",
+            "abcde",
+            "abcdef",
+            "abcdefg",
+            "abcdefgh",
+            "abcdefghi",
+            "abcdefghij",
+            "abcdefghijk",
+            "abcdefghijkl",
+            "abcdefghijklm",
+            "abcdefghijklmn",
+            "abcdefghijklmno",
+            "abcdefghijklmnop",
+            "abcdefghijklmnopq",
+            "abcdefghijklmnopqr",
+            "abcdefghijklmnopqrs",
+            "abcdefghijklmnopqrst"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "abcdefghijklmnopqrst",
+            "bcdefghijklmnopqrst",
+            "cdefghijklmnopqrst",
+            "defghijklmnopqrst",
+            "efghijklmnopqrst",
+            "fghijklmnopqrst",
+            "ghijklmnopqrst",
+            "hijklmnopqrst",
+            "ijklmnopqrst",
+            "jklmnopqrst",
+            "klmnopqrst",
+            "lmnopqrst",
+            "mnopqrst",
+            "nopqrst",
+            "opqrst",
+            "pqrst",
+            "qrst",
+            "rst"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "abcdefghijklmnopqrst"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "abcdefghijklmnopqrst"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "length-20",
+      "text": "ABCDEFGHIJKLMNOPQRST"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "abcdefghijklmnopqrstu"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "abc",
+            "abcd",
+            "abcde",
+            "abcdef",
+            "abcdefg",
+            "abcdefgh",
+            "abcdefghi",
+            "abcdefghij",
+            "abcdefghijk",
+            "abcdefghijkl",
+            "abcdefghijklm",
+            "abcdefghijklmn",
+            "abcdefghijklmno",
+            "abcdefghijklmnop",
+            "abcdefghijklmnopq",
+            "abcdefghijklmnopqr",
+            "abcdefghijklmnopqrs",
+            "abcdefghijklmnopqrst"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "bcdefghijklmnopqrstu",
+            "cdefghijklmnopqrstu",
+            "defghijklmnopqrstu",
+            "efghijklmnopqrstu",
+            "fghijklmnopqrstu",
+            "ghijklmnopqrstu",
+            "hijklmnopqrstu",
+            "ijklmnopqrstu",
+            "jklmnopqrstu",
+            "klmnopqrstu",
+            "lmnopqrstu",
+            "mnopqrstu",
+            "nopqrstu",
+            "opqrstu",
+            "pqrstu",
+            "qrstu",
+            "rstu",
+            "stu"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "abcdefghijklmnopqrst"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "abcdefghijklmnopqrstu"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "length-21",
+      "text": "ABCDEFGHIJKLMNOPQRSTU"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "  abc  123  "
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "123",
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "123",
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "123",
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "123",
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "multi-whitespace",
+      "text": "  ABC  123  "
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "abc-123"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "abc",
+            "abc-",
+            "abc-1",
+            "abc-12",
+            "abc-123"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "-123",
+            "123",
+            "abc-123",
+            "bc-123",
+            "c-123"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "abc-123"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "123",
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "hyphen",
+      "text": "ABC-123"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "lot/abc/999"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "lot",
+            "lot/",
+            "lot/a",
+            "lot/ab",
+            "lot/abc",
+            "lot/abc/",
+            "lot/abc/9",
+            "lot/abc/99",
+            "lot/abc/999"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "/999",
+            "/abc/999",
+            "999",
+            "abc/999",
+            "bc/999",
+            "c/999",
+            "lot/abc/999",
+            "ot/abc/999",
+            "t/abc/999"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "lot/abc/999"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "999",
+            "abc",
+            "lot"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "slash",
+      "text": "LOT/ABC/999"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "ab_c/99-xy"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "ab_",
+            "ab_c",
+            "ab_c/",
+            "ab_c/9",
+            "ab_c/99",
+            "ab_c/99-",
+            "ab_c/99-x",
+            "ab_c/99-xy"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "-xy",
+            "/99-xy",
+            "9-xy",
+            "99-xy",
+            "_c/99-xy",
+            "ab_c/99-xy",
+            "b_c/99-xy",
+            "c/99-xy"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "ab_c/99-xy"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "99",
+            "ab_c",
+            "xy"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "punctuation",
+      "text": "AB_C/99-XY"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "abc-o12"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "abc",
+            "abc-",
+            "abc-o",
+            "abc-o1",
+            "abc-o12"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "-o12",
+            "abc-o12",
+            "bc-o12",
+            "c-o12",
+            "o12"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "abc-o12"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "åbc",
+            "ø12"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "accent",
+      "text": "ÅBC-Ø12"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "aess-lot"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "aes",
+            "aess",
+            "aess-",
+            "aess-l",
+            "aess-lo",
+            "aess-lot"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "-lot",
+            "ass-lot",
+            "eass-lot",
+            "lot",
+            "s-lot",
+            "ss-lot"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "aess-lot"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "lot",
+            "æß"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "fold-expansion",
+      "text": "Æß-LOT"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "oeuvre strasse"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "oeu",
+            "oeuv",
+            "oeuvr",
+            "oeuvre",
+            "str",
+            "stra",
+            "stras",
+            "strass",
+            "strasse"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "asse",
+            "eouvre",
+            "ouvre",
+            "rasse",
+            "sse",
+            "strasse",
+            "trasse",
+            "uvre",
+            "vre"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "oeuvre",
+            "strasse"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "straße",
+            "œuvre"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "fold-expansion-words",
+      "text": "Œuvre Straße"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "lot😀tail"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "lot",
+            "lot😀",
+            "lot😀t",
+            "lot😀ta",
+            "lot😀tai",
+            "lot😀tail"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "ail",
+            "lot😀tail",
+            "ot😀tail",
+            "tail",
+            "t😀tail",
+            "😀tail"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "lot😀tail"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "lot",
+            "tail"
+          ],
+          "oracle_set_equal": false,
+          "view": "word-index"
+        }
+      ],
+      "id": "astral",
+      "text": "LOT😀TAIL"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "lot lot lot"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "lot"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "lot"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "lot"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "lot"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "repeated",
+      "text": "LOT LOT LOT"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "exact-collision-ascii",
+      "text": "abc"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "abc"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "åbc"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "exact-collision-accent",
+      "text": "ÅBC"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "xabcdefghijklmnopqrstu"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "xab",
+            "xabc",
+            "xabcd",
+            "xabcde",
+            "xabcdef",
+            "xabcdefg",
+            "xabcdefgh",
+            "xabcdefghi",
+            "xabcdefghij",
+            "xabcdefghijk",
+            "xabcdefghijkl",
+            "xabcdefghijklm",
+            "xabcdefghijklmn",
+            "xabcdefghijklmno",
+            "xabcdefghijklmnop",
+            "xabcdefghijklmnopq",
+            "xabcdefghijklmnopqr",
+            "xabcdefghijklmnopqrs"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "bcdefghijklmnopqrstu",
+            "cdefghijklmnopqrstu",
+            "defghijklmnopqrstu",
+            "efghijklmnopqrstu",
+            "fghijklmnopqrstu",
+            "ghijklmnopqrstu",
+            "hijklmnopqrstu",
+            "ijklmnopqrstu",
+            "jklmnopqrstu",
+            "klmnopqrstu",
+            "lmnopqrstu",
+            "mnopqrstu",
+            "nopqrstu",
+            "opqrstu",
+            "pqrstu",
+            "qrstu",
+            "rstu",
+            "stu"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "xabcdefghijklmnopqrs"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "xabcdefghijklmnopqrstu"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "reverse-truncate-order",
+      "text": "XABCDEFGHIJKLMNOPQRSTU"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "can't foo.bar email@example.com"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "can",
+            "can'",
+            "can't",
+            "ema",
+            "emai",
+            "email",
+            "email@",
+            "email@e",
+            "email@ex",
+            "email@exa",
+            "email@exam",
+            "email@examp",
+            "email@exampl",
+            "email@example",
+            "email@example.",
+            "email@example.c",
+            "email@example.co",
+            "email@example.com",
+            "foo",
+            "foo.",
+            "foo.b",
+            "foo.ba",
+            "foo.bar"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            ".bar",
+            ".com",
+            "@example.com",
+            "ail@example.com",
+            "ample.com",
+            "an't",
+            "bar",
+            "can't",
+            "com",
+            "e.com",
+            "email@example.com",
+            "example.com",
+            "foo.bar",
+            "il@example.com",
+            "l@example.com",
+            "le.com",
+            "mail@example.com",
+            "mple.com",
+            "n't",
+            "o.bar",
+            "oo.bar",
+            "ple.com",
+            "xample.com"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "can't",
+            "email@example.com",
+            "foo.bar"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "can't",
+            "email",
+            "example.com",
+            "foo.bar"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "standard-boundaries",
+      "text": "can't foo.bar email@example.com"
+    },
+    {
+      "cases": [
+        {
+          "local_terms": [
+            "ist-01"
+          ],
+          "oracle_set_equal": true,
+          "view": "exact-normalizer"
+        },
+        {
+          "local_terms": [
+            "ist",
+            "ist-",
+            "ist-0",
+            "ist-01"
+          ],
+          "oracle_set_equal": true,
+          "view": "starts-index"
+        },
+        {
+          "local_terms": [
+            "-01",
+            "ist-01",
+            "st-01",
+            "t-01"
+          ],
+          "oracle_set_equal": true,
+          "view": "ends-index"
+        },
+        {
+          "local_terms": [
+            "ist-01"
+          ],
+          "oracle_set_equal": true,
+          "view": "edge-search"
+        },
+        {
+          "local_terms": [
+            "01",
+            "ist"
+          ],
+          "oracle_set_equal": true,
+          "view": "word-index"
+        }
+      ],
+      "id": "dotted-i",
+      "text": "İST-01"
+    }
+  ]
+}

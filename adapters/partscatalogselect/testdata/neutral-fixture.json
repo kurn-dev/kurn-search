@@ -1,0 +1,612 @@
+{
+  "schema": "kurn-search/parts-catalog-select-fixture/v1",
+  "source_fixture_sha256": "d6b7e113dd01d43ec108ab8eee54ef4ea59af5d0cca22b3b0f3a058efc1aa57c",
+  "queries": [
+    {
+      "id": "S01",
+      "request": {
+        "query": "AX-100"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-004",
+        "PC-010",
+        "PC-011",
+        "PC-006",
+        "PC-007",
+        "PC-008",
+        "PC-012"
+      ]
+    },
+    {
+      "id": "S02",
+      "request": {
+        "query": "AX-100",
+        "filters": {}
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-004",
+        "PC-010",
+        "PC-011",
+        "PC-006",
+        "PC-007",
+        "PC-008",
+        "PC-012"
+      ]
+    },
+    {
+      "id": "S03",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "category": [
+            "bearing",
+            "filter"
+          ],
+          "status": "active"
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-004",
+        "PC-010",
+        "PC-011",
+        "PC-006",
+        "PC-008"
+      ]
+    },
+    {
+      "id": "S04",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            "Northstar",
+            "Halden"
+          ],
+          "category": "bearing"
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-010",
+        "PC-006"
+      ]
+    },
+    {
+      "id": "S05",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            "Northstar",
+            "Vega"
+          ]
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-003",
+        "PC-004",
+        "PC-010",
+        "PC-006",
+        "PC-007",
+        "PC-012"
+      ]
+    },
+    {
+      "id": "S06",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "category": [
+            "bearing",
+            "Bearing"
+          ]
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-010",
+        "PC-011",
+        "PC-006",
+        "PC-012"
+      ]
+    },
+    {
+      "id": "S07",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": "Northstar"
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-003",
+        "PC-004",
+        "PC-010",
+        "PC-006",
+        "PC-012"
+      ]
+    },
+    {
+      "id": "S08",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            "Northstar"
+          ]
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-003",
+        "PC-004",
+        "PC-010",
+        "PC-006",
+        "PC-012"
+      ]
+    },
+    {
+      "id": "S09",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            "Northstar",
+            "Northstar"
+          ]
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-003",
+        "PC-004",
+        "PC-010",
+        "PC-006",
+        "PC-012"
+      ]
+    },
+    {
+      "id": "S10",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            "Halden",
+            "Northstar"
+          ],
+          "category": "bearing"
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-010",
+        "PC-006"
+      ]
+    },
+    {
+      "id": "S11",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "status": [
+            "active",
+            "discontinued"
+          ]
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-003",
+        "PC-004",
+        "PC-010",
+        "PC-011",
+        "PC-006",
+        "PC-007",
+        "PC-008",
+        "PC-012"
+      ]
+    },
+    {
+      "id": "S12",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            "Unknown",
+            "Other"
+          ]
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": []
+    },
+    {
+      "id": "S13",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            " Northstar",
+            "Northstar "
+          ]
+        }
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": []
+    },
+    {
+      "id": "S14",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            "Northstar",
+            "Halden"
+          ]
+        },
+        "partition_id": "north"
+      },
+      "scope": {
+        "tenant_id": "tenant-b"
+      },
+      "expected_ids": [
+        "PC-005"
+      ]
+    },
+    {
+      "id": "S15",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            "Northstar",
+            "Halden"
+          ],
+          "category": "bearing"
+        },
+        "partition_id": "north"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002",
+        "PC-006"
+      ]
+    },
+    {
+      "id": "S16",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            "Northstar",
+            "Vega"
+          ]
+        },
+        "partition_id": "south"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-003",
+        "PC-007"
+      ]
+    },
+    {
+      "id": "S17",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "category": [
+            "bearing",
+            "filter"
+          ],
+          "status": "active"
+        },
+        "limit": 2
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-002"
+      ]
+    },
+    {
+      "id": "S18",
+      "request": {
+        "query": "ZB-9",
+        "filters": {
+          "manufacturer": [
+            "Halden",
+            "Northstar"
+          ],
+          "status": "discontinued"
+        },
+        "limit": 1000
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "ZB-9139"
+      ]
+    },
+    {
+      "id": "S19",
+      "request": {
+        "query": "ZB-9",
+        "filters": {
+          "manufacturer": [
+            "Halden",
+            "Northstar"
+          ],
+          "status": [
+            "active",
+            "discontinued"
+          ]
+        },
+        "limit": 1000
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "ZB-9000",
+        "ZB-9001",
+        "ZB-9002",
+        "ZB-9003",
+        "ZB-9004",
+        "ZB-9005",
+        "ZB-9006",
+        "ZB-9007",
+        "ZB-9008",
+        "ZB-9009",
+        "ZB-9010",
+        "ZB-9011",
+        "ZB-9012",
+        "ZB-9013",
+        "ZB-9014",
+        "ZB-9015",
+        "ZB-9016",
+        "ZB-9017",
+        "ZB-9018",
+        "ZB-9019",
+        "ZB-9020",
+        "ZB-9021",
+        "ZB-9022",
+        "ZB-9023",
+        "ZB-9024",
+        "ZB-9025",
+        "ZB-9026",
+        "ZB-9027",
+        "ZB-9028",
+        "ZB-9029",
+        "ZB-9030",
+        "ZB-9031",
+        "ZB-9032",
+        "ZB-9033",
+        "ZB-9034",
+        "ZB-9035",
+        "ZB-9036",
+        "ZB-9037",
+        "ZB-9038",
+        "ZB-9039",
+        "ZB-9040",
+        "ZB-9041",
+        "ZB-9042",
+        "ZB-9043",
+        "ZB-9044",
+        "ZB-9045",
+        "ZB-9046",
+        "ZB-9047",
+        "ZB-9048",
+        "ZB-9049",
+        "ZB-9050",
+        "ZB-9051",
+        "ZB-9052",
+        "ZB-9053",
+        "ZB-9054",
+        "ZB-9055",
+        "ZB-9056",
+        "ZB-9057",
+        "ZB-9058",
+        "ZB-9059",
+        "ZB-9060",
+        "ZB-9061",
+        "ZB-9062",
+        "ZB-9063",
+        "ZB-9064",
+        "ZB-9065",
+        "ZB-9066",
+        "ZB-9067",
+        "ZB-9068",
+        "ZB-9069",
+        "ZB-9070",
+        "ZB-9071",
+        "ZB-9072",
+        "ZB-9073",
+        "ZB-9074",
+        "ZB-9075",
+        "ZB-9076",
+        "ZB-9077",
+        "ZB-9078",
+        "ZB-9079",
+        "ZB-9080",
+        "ZB-9081",
+        "ZB-9082",
+        "ZB-9083",
+        "ZB-9084",
+        "ZB-9085",
+        "ZB-9086",
+        "ZB-9087",
+        "ZB-9088",
+        "ZB-9089",
+        "ZB-9090",
+        "ZB-9091",
+        "ZB-9092",
+        "ZB-9093",
+        "ZB-9094",
+        "ZB-9095",
+        "ZB-9096",
+        "ZB-9097",
+        "ZB-9098",
+        "ZB-9099",
+        "ZB-9100",
+        "ZB-9101",
+        "ZB-9102",
+        "ZB-9103",
+        "ZB-9104",
+        "ZB-9105",
+        "ZB-9106",
+        "ZB-9107",
+        "ZB-9108",
+        "ZB-9109",
+        "ZB-9110",
+        "ZB-9111",
+        "ZB-9112",
+        "ZB-9113",
+        "ZB-9114",
+        "ZB-9115",
+        "ZB-9116",
+        "ZB-9117",
+        "ZB-9118",
+        "ZB-9119",
+        "ZB-9120",
+        "ZB-9121",
+        "ZB-9122",
+        "ZB-9123",
+        "ZB-9124",
+        "ZB-9125",
+        "ZB-9126",
+        "ZB-9127",
+        "ZB-9128",
+        "ZB-9129",
+        "ZB-9130",
+        "ZB-9131",
+        "ZB-9132",
+        "ZB-9133",
+        "ZB-9134",
+        "ZB-9135",
+        "ZB-9136",
+        "ZB-9137",
+        "ZB-9138",
+        "ZB-9139"
+      ]
+    },
+    {
+      "id": "S20",
+      "request": {
+        "query": "AX-100",
+        "filters": {
+          "manufacturer": [
+            "Northstar",
+            "U00",
+            "U01",
+            "U02",
+            "U03",
+            "U04",
+            "U05",
+            "U06",
+            "U07",
+            "U08",
+            "U09",
+            "U10",
+            "U11",
+            "U12",
+            "U13",
+            "U14"
+          ],
+          "category": [
+            "bearing",
+            "U00",
+            "U01",
+            "U02",
+            "U03",
+            "U04",
+            "U05",
+            "U06",
+            "U07",
+            "U08",
+            "U09",
+            "U10",
+            "U11",
+            "U12",
+            "U13",
+            "U14"
+          ],
+          "status": [
+            "active",
+            "discontinued"
+          ]
+        },
+        "partition_id": "north"
+      },
+      "scope": {
+        "tenant_id": "tenant-a"
+      },
+      "expected_ids": [
+        "PC-001",
+        "PC-006"
+      ]
+    }
+  ]
+}
