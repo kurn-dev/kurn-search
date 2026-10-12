@@ -1,0 +1,67 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "25.6.1"
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14.5"
+      - name: gofmt
+        run: |
+          unformatted=$(gofmt -l .)
+          if [ -n "$unformatted" ]; then
+            printf '%s\n' "$unformatted" >&2
+            exit 1
+          fi
+      - run: go build ./...
+      - run: go vet ./...
+      - run: go test -count=1 ./...
+      - run: go test -race -count=1 ./...
+      - run: node --test clients/typescript/test/client.test.mjs
+      - run: python3 clients/python/test_client.py
+      - name: public provenance and source inventory
+        run: node tools/check-publication.mjs
+      - name: install pinned development compiler
+        run: npm ci --prefix tools/typescript --ignore-scripts --no-audit --no-fund
+      - name: TypeScript prepared consumer
+        run: |
+          consumer="$RUNNER_TEMP/prepared-consumer"
+          cp -R examples/parts-catalog-suggest-prepared/consumer "$consumer"
+          npm install --prefix "$consumer" --offline --ignore-scripts --no-audit --no-fund "$GITHUB_WORKSPACE/clients/typescript"
+          node tools/typescript/node_modules/typescript/bin/tsc -p "$consumer/tsconfig.json"
+          if node tools/typescript/node_modules/typescript/bin/tsc -p "$consumer/tsconfig.negative.json" > "$RUNNER_TEMP/negative-types.log" 2>&1; then
+            echo "negative TypeScript fixture compiled unexpectedly" >&2
+            exit 1
+          fi
+          node --input-type=module - "$RUNNER_TEMP/negative-types.log" <<'JS'
+          import { readFileSync } from 'node:fs';
+          const output = readFileSync(process.argv[2], 'utf8');
+          if ((output.match(/error TS/g) ?? []).length !== 3 ||
+              !output.includes("'color'") || !output.includes("Type 'number'") || !output.includes('"retired"')) {
+            throw Error('negative TypeScript diagnostics differ: ' + output);
+          }
+          console.log('positive consumer passed; three expected negative diagnostics confirmed');
+          JS

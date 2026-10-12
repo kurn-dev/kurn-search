@@ -39,3 +39,9 @@ restart and version verification. Full host-failure, distributed deployment,
 load qualification and cross-platform execution are separate claims. Compare
 the final source inventory before publishing; do not reuse upstream private
 proofs as evidence for changed public source bytes.
+
+The public CI workflow runs formatting, build, vet, the complete Go suite and
+race suite, both runtime client suites, publication/inventory checks and the
+pinned TypeScript prepared-consumer checks. It uses only this public tree and
+installs development tooling with package scripts disabled. It does not publish
+packages, deploy services or access private source or evidence generators.

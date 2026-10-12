@@ -23,6 +23,11 @@
   "self_excluded": "release-inventory.json",
   "files": [
     {
+      "name": ".github/workflows/ci.yml",
+      "bytes": 2485,
+      "sha256": "fa3b59d198103209025f8b74e67af02a26a3fe9648b71ca92af1de363d5a7b3b"
+    },
+    {
       "name": ".gitignore",
       "bytes": 97,
       "sha256": "b4a4655f0449e3b82e79e73389caee797369bae2cc4ac9c8b04f20096fc0c1e5"
@@ -854,8 +859,8 @@
     },
     {
       "name": "docs/release.md",
-      "bytes": 2545,
-      "sha256": "db2c09b4f231b062d4494e8d980c4b17f58267a86d5dd7dac1ab31abed97f8f4"
+      "bytes": 2934,
+      "sha256": "36e0b7a287efe96c65c56107065d218a67b01b40e441f5b9b47720b7e542d2dd"
     },
     {
       "name": "docs/user-manual.md",
