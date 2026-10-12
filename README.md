@@ -58,20 +58,6 @@ transposition hits instead receive 100 for whole-key membership of a generated
 variant. Neither is confidence or probability; evaluate your own labelled
 queries, false matches and capacity before deployment.
 
-## Operating Boundaries
-
-The examples bind to loopback and use demonstration authentication. Production
-authentication, TLS, supervision and fleet operation need a separate deployment
-design. Prepared versions are immutable and use fresh endpoint/handle pairs;
-coordinate replacement and retain the old version for rollback. Collections
-must fit one node's memory. Admission limits are not a total process-memory cap.
-
-Swarm is experimental and is not included as a supported product or Search
-backend in this release. The helper's required implementation libraries are
-not a supported distributed control plane. Private performance commands,
-deployment tooling and historical evidence generators are not part of this
-source distribution.
-
 ## License And Provenance
 
 Search service, adapters, Go tooling and examples are AGPL-3.0-only. The thin
