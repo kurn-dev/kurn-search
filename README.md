@@ -1,10 +1,12 @@
-# Kurn Search
+# kurn search
 
-Search your own part numbers through an application-facing adapter over
-[Kurn](https://github.com/kurn-dev/kurn). Prepare a read-only search version,
-run it beside your application, and query it with the TypeScript or Python
-client. The examples are reference implementations you can adapt, not a
-hosted service or a production deployment recipe.
+**Build search around your own data.**
+
+kurn search provides example adapters for adding fuzzy and exact lookup to
+your application, powered by [kurn](https://github.com/kurn-dev/kurn). Prepare a
+reusable search version, run it alongside your application, and query it with
+TypeScript or Python. Adapt the examples to define which data is searchable,
+which queries you accept and what results your application returns.
 
 ## Try A Fuzzy Lookup
 
